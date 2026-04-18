@@ -21,8 +21,13 @@
         '    </nav>' +
         '    <a class="c-btn c-btn--sm c-btn--solid c-header-cta" href="index.html#rfq">Request Quote</a>' +
         '  </div>' +
+        '  <button class="c-mobile-nav__overlay" type="button" aria-label="Close menu" data-menu-close hidden></button>' +
         '  <div class="c-mobile-nav" id="mobile-nav" hidden>' +
         '    <div class="o-container c-mobile-nav__inner">' +
+        '      <div class="c-mobile-nav__head">' +
+        '        <span class="c-mobile-nav__title">Menu</span>' +
+        '        <button class="c-mobile-nav__close" type="button" aria-label="Close menu" data-menu-close>×</button>' +
+        '      </div>' +
         '      <a data-nav="home" href="index.html">Home</a>' +
         '      <a data-nav="products" href="product-cea-410.html">Products</a>' +
         '      <a data-nav="brands" href="brand-abb.html">Brands</a>' +

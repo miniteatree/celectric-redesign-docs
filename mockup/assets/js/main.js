@@ -40,6 +40,7 @@
   function initMobileMenu() {
     var toggle = document.querySelector('[data-menu-toggle]');
     var mobileNav = document.querySelector('.c-mobile-nav');
+    var closeButtons = document.querySelectorAll('[data-menu-close]');
 
     if (!toggle || !mobileNav) {
       return;
@@ -56,6 +57,18 @@
     toggle.addEventListener('click', function () {
       var isOpen = toggle.getAttribute('aria-expanded') === 'true';
       setMenuState(!isOpen);
+    });
+
+    closeButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        setMenuState(false);
+      });
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        setMenuState(false);
+      }
     });
 
     mobileNav.addEventListener('click', function (event) {
