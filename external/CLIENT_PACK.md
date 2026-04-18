@@ -156,6 +156,21 @@ Recommended handling:
 - display a Documents / Downloads section on the product page
 - group files by type where appropriate
 - support both product-level and variant-level documents where needed
+- allow client to select one or more files and request them by email
+- use secure download links for all document delivery, rather than direct public file URLs or large email attachments
+
+### Secure Download Link Decision
+For owner discussion and implementation planning, the recommended default is:
+- all selected documents are delivered through secure download links
+- backend validates requested document IDs before generating links
+- links should be time-limited and non-guessable
+- email should contain secure links instead of attaching the actual files
+
+Why this is recommended:
+- avoids mailbox attachment size limits
+- reduces risk of uncontrolled public file sharing
+- supports logging and audit trail of document requests
+- is easier to extend later with access rules, expiry, and CRM / Odoo follow-up
 
 ## Items To Confirm With Client
 - Main business goal of the new website
@@ -215,4 +230,4 @@ Please confirm the preferred direction:
 - CRM integration
 
 ## Client Decisions Log
-- Pending
+- Confirmed direction: document delivery should use secure download links for all selected files, instead of direct attachments.

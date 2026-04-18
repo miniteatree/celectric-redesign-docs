@@ -97,6 +97,27 @@ Recommended result behavior:
 - Files may include PDF and other approved types
 - Documents may be grouped by type
 - Some documents may belong to the parent product, others to a specific variant
+- Client can select one or more related documents from the product page
+- Document delivery should use secure download links for all requested files
+
+### Secure Download Delivery Rule
+Recommended backend behavior:
+- frontend submits selected `document_ids` plus requester email
+- backend validates document ownership, publish status, and visibility
+- backend generates time-limited secure download links
+- email sends secure links instead of attaching files directly
+- every document request should be stored as a record for audit and follow-up
+
+Suggested records to keep:
+- requester name
+- requester email
+- product id
+- variant id if applicable
+- selected document ids
+- request timestamp
+- delivery status
+- secure link expiry time
+- optional CRM / Odoo follow-up status
 
 ## Admin Panel Requirements Summary
 - Catalog management
@@ -169,9 +190,11 @@ Recommended result behavior:
 
 ### Documents and Assets
 - [ ] Define product image handling
-- [ ] Define multi-document attachment model
-- [ ] Define datasheet / PDF display rules
+- [~] Define multi-document attachment model
+- [~] Define datasheet / PDF display rules
 - [ ] Define file naming and categorization rules
+- [x] Record decision that selected documents should be delivered using secure download links only
+- [x] Record need for backend request logs for selected document delivery
 
 ### Integrations
 - [ ] Define Odoo sync scope
@@ -201,6 +224,7 @@ Recommended result behavior:
   - Confirmed strong need for admin panel and AI-assisted SEO.
   - Documented variant URL, search, and sitemap handling.
   - Added client confirmation materials for product option SEO.
+  - Recorded owner-facing decision that document delivery should use secure download links only, with backend request records.
 
 ## Note
 Use this file as the main internal resume point for the project.
