@@ -312,7 +312,7 @@
       }
 
       baseDocsList.innerHTML = product.baseDocuments.map(function (item) {
-        return renderDocItem(item, 'base', true);
+        return renderDocItem(item, 'base', false);
       }).join("");
     }
 
@@ -333,7 +333,7 @@
         return;
       }
       variantDocsList.innerHTML = documents.map(function (item) {
-        return renderDocItem(item, 'variant', true);
+        return renderDocItem(item, 'variant', false);
       }).join("");
     }
 
@@ -382,7 +382,7 @@
 
       var selected = getSelectedDocuments();
       if (!selected.length) {
-        docSelectionSummary.textContent = 'No files selected yet.';
+        docSelectionSummary.textContent = '0 files selected.';
         return;
       }
 
