@@ -35,6 +35,7 @@ Celectric should be rebuilt as an industrial product catalog and enquiry platfor
 - Featured products
 - Industry / solution sections
 - Strong enquiry CTA
+- Short AI-friendly summary and FAQ blocks
 
 ### 4. Product Listing Page
 - Clear category structure
@@ -52,6 +53,7 @@ Celectric should be rebuilt as an industrial product catalog and enquiry platfor
 - Key specifications summary
 - Datasheet / document downloads
 - Related products
+- Short Q&A / FAQ block
 - Enquiry / RFQ CTA
 
 ### 6. Conversion Flow
@@ -217,12 +219,23 @@ Please confirm the preferred direction:
 - [ ] Query parameter URLs for option states should not be treated as standalone SEO pages
 - [ ] Products should support multiple downloadable documents
 
+## AI Friendly Content Recommendation
+To improve SEO and future AI discoverability, important pages should use:
+- clear heading structure
+- short factual summaries
+- structured specifications
+- short Q&A / FAQ blocks
+- reusable markdown-friendly content fields in admin
+
+This helps both search engines and future AI-assisted content workflows.
+
 ## Open Questions
 - How many product categories are in scope for phase 1?
 - Are product specifications already structured in existing data?
 - Are brand assets and product images available?
 - Is there an existing enquiry handling workflow?
 - Does the client want SEO landing pages by industry or brand?
+- Does the client want FAQ / Q&A blocks on category, brand, and product pages?
 
 ## Phase Proposal
 

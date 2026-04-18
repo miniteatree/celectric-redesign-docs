@@ -166,6 +166,12 @@ Admin controls recommended:
 - Human review is required before publish
 - Technical specifications must not be invented
 - AI should work from structured product data where possible
+- Important pages should support short factual Q&A blocks
+- Content fields should be markdown-friendly for reuse across SEO, AI drafting, and admin workflows
+- Website structure should expose summary, specs, applications, documents, and FAQ clearly
+
+Reference:
+- `internal/AI_FRIENDLY_CONTENT_AND_STRUCTURE.md`
 
 ## Risks / Unknowns
 - Unknown number of products and brands
@@ -212,7 +218,8 @@ Admin controls recommended:
 - [ ] Define canonical strategy
 - [ ] Define metadata rules
 - [ ] Define schema markup approach
-- [ ] Define AI-assisted SEO workflow
+- [~] Define AI-assisted SEO workflow
+- [x] Record AI-friendly page structure, Q&A guidance, and markdown-friendly content model
 
 ### Search
 - [~] Define search scope
@@ -228,6 +235,7 @@ Admin controls recommended:
 - [ ] Define file naming and categorization rules
 - [x] Record decision that selected documents should be delivered using secure download links only
 - [x] Record need for backend request logs for selected document delivery
+- [x] Record approved brand color direction for AI-assisted visual work
 
 ### Integrations
 - [ ] Define Odoo sync scope
