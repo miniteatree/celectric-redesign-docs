@@ -271,28 +271,20 @@
     });
   }
 
-  function renderDocItem(item) {
+  function renderDocItem(item, scope, checked) {
+    var id = 'doc-' + scope + '-' + item.id;
     return (
-      '<li class="c-docs__item">' +
+      '<li class="c-docs__item c-docs__item--selectable">' +
+      '  <label class="c-docs__check" for="' + escapeHtml(id) + '">' +
+      '    <input type="checkbox" id="' + escapeHtml(id) + '" data-doc-checkbox data-doc-scope="' + escapeHtml(scope) + '" data-doc-id="' + escapeHtml(item.id) + '" ' + (checked ? 'checked' : '') + ' />' +
+      '    <span></span>' +
+      '  </label>' +
       '  <div>' +
       '    <p class="c-docs__title">' + escapeHtml(item.title) + '</p>' +
-      '    <p class="c-docs__meta">' + escapeHtml(item.type) + ' | ' + escapeHtml(item.size) + '</p>' +
+      '    <p class="c-docs__meta">' + escapeHtml(scope === 'base' ? 'Product file' : 'Variant file') + ' | ' + escapeHtml(item.type) + ' | ' + escapeHtml(item.size) + '</p>' +
       '  </div>' +
       '  <a href="#" aria-label="Preview ' + escapeHtml(item.title) + '">Preview</a>' +
       '</li>'
-    );
-  }
-
-  function renderSelectableDocItem(item, scope, checked) {
-    var id = 'doc-' + scope + '-' + item.id;
-    return (
-      '<label class="c-doc-select-item" for="' + escapeHtml(id) + '">' +
-      '  <input type="checkbox" id="' + escapeHtml(id) + '" data-doc-checkbox data-doc-scope="' + escapeHtml(scope) + '" data-doc-id="' + escapeHtml(item.id) + '" ' + (checked ? 'checked' : '') + ' />' +
-      '  <span class="c-doc-select-item__body">' +
-      '    <span class="c-doc-select-item__title">' + escapeHtml(item.title) + '</span>' +
-      '    <span class="c-doc-select-item__meta">' + escapeHtml(scope === 'base' ? 'Product file' : 'Variant file') + ' | ' + escapeHtml(item.type) + ' | ' + escapeHtml(item.size) + '</span>' +
-      '  </span>' +
-      '</label>'
     );
   }
 
@@ -310,7 +302,6 @@
     var baseDocsList = root.querySelector("[data-base-docs]");
     var variantDocsList = root.querySelector("[data-variant-docs]");
     var rfqVariant = root.querySelector("[data-rfq-variant]");
-    var docSelectionList = root.querySelector("[data-doc-selection-list]");
     var docSelectionSummary = root.querySelector("[data-doc-selection-summary]");
     var docEmailStatus = root.querySelector("[data-doc-email-status]");
     var docEmailForm = root.querySelector("[data-doc-email]");
@@ -320,7 +311,9 @@
         return;
       }
 
-      baseDocsList.innerHTML = product.baseDocuments.map(renderDocItem).join("");
+      baseDocsList.innerHTML = product.baseDocuments.map(function (item) {
+        return renderDocItem(item, 'base', true);
+      }).join("");
     }
 
     function renderVariantSpecs(specs) {
@@ -339,7 +332,9 @@
       if (!variantDocsList) {
         return;
       }
-      variantDocsList.innerHTML = documents.map(renderDocItem).join("");
+      variantDocsList.innerHTML = documents.map(function (item) {
+        return renderDocItem(item, 'variant', true);
+      }).join("");
     }
 
     function getSelectedVariantKey() {
@@ -361,32 +356,6 @@
           return Object.assign({ id: item.id || 'variant-' + index }, item);
         })
       };
-    }
-
-    function renderDocumentPicker() {
-      if (!docSelectionList) {
-        return;
-      }
-
-      var selectionData = getCurrentSelectionData();
-      var baseMarkup = selectionData.base.map(function (item) {
-        return renderSelectableDocItem(item, 'base', true);
-      }).join('');
-      var variantMarkup = selectionData.variant.map(function (item) {
-        return renderSelectableDocItem(item, 'variant', true);
-      }).join('');
-
-      docSelectionList.innerHTML =
-        '<div class="c-doc-select-group">' +
-        '  <p class="c-doc-select-group__title">Product-level files</p>' +
-        '  <div class="c-doc-select-group__items">' + baseMarkup + '</div>' +
-        '</div>' +
-        '<div class="c-doc-select-group">' +
-        '  <p class="c-doc-select-group__title">Selected variant files</p>' +
-        '  <div class="c-doc-select-group__items">' + variantMarkup + '</div>' +
-        '</div>';
-
-      updateDocumentSelectionSummary();
     }
 
     function getSelectedDocuments() {
@@ -450,7 +419,7 @@
 
       renderVariantSpecs(variant.specs);
       renderVariantDocuments(variant.documents);
-      renderDocumentPicker();
+      updateDocumentSelectionSummary();
 
       variantButtons.forEach(function (button) {
         var isActive = button.getAttribute("data-variant") === variantKey;
@@ -521,7 +490,7 @@
         docEmailStatus.hidden = false;
         docEmailStatus.classList.remove('is-error');
         docEmailStatus.textContent =
-          'Mockup only: would send ' + selected.length + ' selected file(s) for ' + product.model + ' (' + variantLabel + ') to ' + clientEmail + '.';
+          'Mockup only: would email ' + selected.length + ' selected file(s) for ' + product.model + ' (' + variantLabel + ') to ' + clientEmail + '.';
       });
     }
   }

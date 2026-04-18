@@ -602,49 +602,21 @@
   flex-wrap: wrap;
 }
 
-.c-doc-email__list {
-  display: grid;
+.c-docs__item--selectable {
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
   gap: var(--space-4);
 }
 
-.c-doc-select-group {
-  display: grid;
-  gap: var(--space-3);
+.c-docs__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.c-doc-select-group__items {
-  display: grid;
-  gap: var(--space-3);
-}
-
-.c-doc-select-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  padding: var(--space-4);
-  border-radius: 16px;
-  border: 1px solid rgba(34, 52, 71, 0.12);
-  background: rgba(244, 247, 251, 0.88);
-  cursor: pointer;
-}
-
-.c-doc-select-item input {
-  margin-top: 0.2rem;
-}
-
-.c-doc-select-item__body {
-  display: grid;
-  gap: var(--space-1);
-}
-
-.c-doc-select-item__title {
-  font-weight: 600;
-  color: var(--color-ink-900);
-}
-
-.c-doc-select-item__meta {
-  font-size: 0.85rem;
-  color: var(--color-steel-600);
+.c-docs__check input {
+  width: 18px;
+  height: 18px;
 }
 
 .c-doc-email__status {

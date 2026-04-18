@@ -177,7 +177,8 @@
             <h2 class="c-section__title">Grouped product and variant documents on one canonical page.</h2>
             <p class="c-section__copy">
               Supports both product-level files and variant-level files, matching documented requirements for
-              datasheets, manuals, drawings, certificates, and brochures.
+              datasheets, manuals, drawings, certificates, and brochures. Client can tick the needed files directly
+              from the list and email them to themselves.
             </p>
           </header>
 
@@ -194,23 +195,23 @@
 
           <article class="c-doc-email" data-doc-email data-reveal>
             <div class="c-doc-email__intro">
-              <p class="c-overline">Send Documents to Client</p>
-              <h3 class="c-section__title">Select PDFs and related files, then email them to the client.</h3>
+              <p class="c-overline">Email Selected Documents</p>
+              <h3 class="c-section__title">Client selects related documents and emails them to themselves.</h3>
               <p class="c-section__copy">
-                This mockup represents a future feature where sales/admin can bundle selected product and variant
-                documents into one outgoing email.
+                This mockup represents a future self-service flow where the client chooses the needed files directly
+                from the document list and receives them by email.
               </p>
             </div>
 
             <form class="c-doc-email__form" action="#" method="post">
               <div class="c-form-grid">
                 <div class="c-form-row">
-                  <label for="doc-client-name">Client Name</label>
-                  <input class="c-input" id="doc-client-name" type="text" placeholder="Client contact name" />
+                  <label for="doc-client-name">Your Name</label>
+                  <input class="c-input" id="doc-client-name" type="text" placeholder="Your name" />
                 </div>
                 <div class="c-form-row">
-                  <label for="doc-client-email">Client Email</label>
-                  <input class="c-input" id="doc-client-email" type="email" placeholder="client@company.com" />
+                  <label for="doc-client-email">Your Email</label>
+                  <input class="c-input" id="doc-client-email" type="email" placeholder="you@company.com" />
                 </div>
                 <div class="c-form-row c-form-row--full">
                   <label for="doc-email-subject">Email Subject</label>
@@ -218,7 +219,7 @@
                     class="c-input"
                     id="doc-email-subject"
                     type="text"
-                    value="Celectric | Product A Spectral Sensor Document Package"
+                    value="Celectric | Requested Product Documents"
                   />
                 </div>
                 <div class="c-form-row c-form-row--full">
@@ -227,20 +228,19 @@
                     class="c-textarea"
                     id="doc-email-message"
                     rows="5"
-                    placeholder="Attached are the requested datasheets, drawings, and certificates for your review."
+                    placeholder="Please send me the selected datasheets, drawings, and certificates."
                   >Hi,
 
-Please find the selected technical documents for Product A Spectral Sensor attached for your review.
+Please send me the selected technical documents for Product A Spectral Sensor.
 
-Regards,
-Celectric Sales Team</textarea>
+Thanks.</textarea>
                 </div>
               </div>
 
               <div class="c-doc-email__picker">
                 <div>
-                  <p class="c-doc-email__label">Choose files to include</p>
-                  <p class="c-doc-email__hint">Mix parent product PDFs with selected variant files.</p>
+                  <p class="c-doc-email__label">Selected from document list above</p>
+                  <p class="c-doc-email__hint">Tick the checkboxes beside each document you want emailed.</p>
                 </div>
                 <div class="c-doc-email__actions">
                   <button class="c-btn c-btn--ghost c-btn--sm" type="button" data-doc-select="all">Select all</button>
@@ -248,14 +248,12 @@ Celectric Sales Team</textarea>
                 </div>
               </div>
 
-              <div class="c-doc-email__list" data-doc-selection-list></div>
-
               <div class="c-doc-email__summary">
                 <div>
                   <p class="c-doc-email__label">Attachment summary</p>
                   <p class="c-doc-email__hint" data-doc-selection-summary>No files selected yet.</p>
                 </div>
-                <button class="c-btn c-btn--solid" type="submit">Send document package</button>
+                <button class="c-btn c-btn--solid" type="submit">Email selected documents</button>
               </div>
 
               <div class="c-doc-email__status" data-doc-email-status hidden></div>
