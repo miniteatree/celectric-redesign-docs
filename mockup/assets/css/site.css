@@ -612,11 +612,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 24px;
 }
 
 .c-docs__check input {
   width: 18px;
   height: 18px;
+  accent-color: var(--color-ink-900);
 }
 
 .c-doc-email__status {
