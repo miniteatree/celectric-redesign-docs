@@ -202,6 +202,11 @@ Prompt guidance:
 - avoid neon or overly warm startup palettes
 - maintain a trustworthy technical B2B feel
 
+## Reusable Markdown Templates
+Available internal templates:
+- `internal/templates/PRODUCT_PAGE_TEMPLATE.md`
+- `internal/templates/BRAND_PAGE_TEMPLATE.md`
+
 ## Recommendation for Phase 1
 For launch phase, make sure each important page has:
 - clear H1
