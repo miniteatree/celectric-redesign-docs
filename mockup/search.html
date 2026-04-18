@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results | Celectric</title>
+    <meta name="description" content="Search result mockup with filters for Celectric industrial catalog." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/design-system.css?v=720a939" />
+    <link rel="stylesheet" href="assets/css/site.css?v=720a939" />
+  </head>
+  <body data-page="products">
+    <div data-component="site-header"></div>
+
+    <main>
+      <section class="c-section c-section--tight">
+        <div class="o-container">
+          <header class="c-section__head" data-reveal>
+            <p class="c-overline">Search Results</p>
+            <h1 class="c-section__title">Results for “CEA-410” with catalog filters.</h1>
+            <p class="c-section__copy">
+              This page demonstrates how keyword search can combine with brand, category, and spec filters.
+            </p>
+          </header>
+
+          <div class="c-listing-layout">
+            <aside class="c-filter-panel" data-reveal>
+              <h2 class="c-filter-panel__title">Refine search</h2>
+              <div class="c-filter-group">
+                <p class="c-filter-group__label">Brand</p>
+                <label><input type="checkbox" checked /> ABB</label>
+                <label><input type="checkbox" /> Siemens</label>
+              </div>
+              <div class="c-filter-group">
+                <p class="c-filter-group__label">Result Type</p>
+                <label><input type="checkbox" checked /> Products</label>
+                <label><input type="checkbox" checked /> Variants</label>
+                <label><input type="checkbox" /> Documents</label>
+              </div>
+              <div class="c-filter-group">
+                <p class="c-filter-group__label">Technical Match</p>
+                <label><input type="checkbox" checked /> 20nm</label>
+                <label><input type="checkbox" /> HART</label>
+              </div>
+            </aside>
+
+            <section class="c-listing-results" data-reveal>
+              <div class="c-search c-search--static">
+                <div class="c-search__input-wrap">
+                  <span class="c-search__icon" aria-hidden="true">S</span>
+                  <input class="c-input" type="text" value="CEA-410" aria-label="Search keyword" />
+                  <button class="c-btn c-btn--sm c-btn--solid" type="button">Search</button>
+                </div>
+              </div>
+
+              <div class="c-listing-toolbar">
+                <p class="c-listing-toolbar__meta">3 relevant results found</p>
+                <select class="c-select">
+                  <option>Sort: Best match</option>
+                  <option>Sort: Brand</option>
+                </select>
+              </div>
+
+              <div class="c-chip-row c-listing-applied">
+                <span class="c-chip">Keyword: CEA-410</span>
+                <span class="c-chip">Brand: ABB</span>
+                <span class="c-chip">Variant: 20nm</span>
+              </div>
+
+              <div class="c-grid c-grid--1">
+                <article class="c-card c-product-card">
+                  <div>
+                    <p class="c-product-card__code">Product Result</p>
+                    <h3 class="c-card__title">ABB CEA-410 Product A Spectral Sensor</h3>
+                    <p class="c-card__subtitle">Canonical parent product page with option-aware search handling.</p>
+                  </div>
+                  <div class="c-home-hero__actions">
+                    <a class="c-btn c-btn--solid c-btn--sm" href="product-cea-410.html">Open product</a>
+                  </div>
+                </article>
+
+                <article class="c-card c-product-card">
+                  <div>
+                    <p class="c-product-card__code">Variant Result</p>
+                    <h3 class="c-card__title">CEA-410 (20nm option)</h3>
+                    <p class="c-card__subtitle">Searchable variant keyword that routes to the parent product page with the matching option selected.</p>
+                  </div>
+                  <div class="c-home-hero__actions">
+                    <a class="c-btn c-btn--solid c-btn--sm" href="product-cea-410.html?variant=20nm">Open selected option</a>
+                  </div>
+                </article>
+
+                <article class="c-card c-product-card">
+                  <div>
+                    <p class="c-product-card__code">Document Result</p>
+                    <h3 class="c-card__title">Datasheet - Product A Spectral Sensor</h3>
+                    <p class="c-card__subtitle">Document metadata remains connected to the product page and secure request flow.</p>
+                  </div>
+                  <div class="c-home-hero__actions">
+                    <a class="c-btn c-btn--ghost c-btn--sm" href="product-cea-410.html#documents">Open documents section</a>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-component="site-footer"></div>
+
+    <script src="assets/data/catalog.js?v=720a939"></script>
+    <script src="assets/js/components.js?v=720a939"></script>
+    <script src="assets/js/main.js?v=720a939"></script>
+  </body>
+</html>

@@ -14,10 +14,10 @@
         '    </button>' +
         '    <nav class="c-main-nav" aria-label="Primary">' +
         '      <a data-nav="home" href="index.html">Home</a>' +
-        '      <a data-nav="products" href="product-cea-410.html">Products</a>' +
-        '      <a data-nav="brands" href="brand-abb.html">Brands</a>' +
+        '      <a data-nav="products" href="products.html">Products</a>' +
+        '      <a data-nav="brands" href="brands.html">Brands</a>' +
         '      <a data-nav="solutions" href="index.html#solutions">Solutions</a>' +
-        '      <a data-nav="resources" href="product-cea-410.html#documents">Resources</a>' +
+        '      <a data-nav="resources" href="search.html">Resources</a>' +
         '    </nav>' +
         '    <a class="c-btn c-btn--sm c-btn--solid c-header-cta" href="index.html#rfq">Request Quote</a>' +
         '  </div>' +
@@ -29,10 +29,10 @@
         '        <button class="c-mobile-nav__close" type="button" aria-label="Close menu" data-menu-close>×</button>' +
         '      </div>' +
         '      <a data-nav="home" href="index.html">Home</a>' +
-        '      <a data-nav="products" href="product-cea-410.html">Products</a>' +
-        '      <a data-nav="brands" href="brand-abb.html">Brands</a>' +
+        '      <a data-nav="products" href="products.html">Products</a>' +
+        '      <a data-nav="brands" href="brands.html">Brands</a>' +
         '      <a data-nav="solutions" href="index.html#solutions">Solutions</a>' +
-        '      <a data-nav="resources" href="product-cea-410.html#documents">Resources</a>' +
+        '      <a data-nav="resources" href="search.html">Resources</a>' +
         '      <a class="c-btn c-btn--solid" href="index.html#rfq">Request Quote</a>' +
         '    </div>' +
         '  </div>' +
@@ -50,7 +50,8 @@
         '    </div>' +
         '    <div class="c-site-footer__links">' +
         '      <a href="index.html">Home</a>' +
-        '      <a href="brand-abb.html">Brand Page</a>' +
+        '      <a href="brands.html">Brand Index</a>' +
+        '      <a href="products.html">Products</a>' +
         '      <a href="product-cea-410.html">Product Detail</a>' +
         '      <a href="mailto:sales@celectric.example">sales@celectric.example</a>' +
         '    </div>' +

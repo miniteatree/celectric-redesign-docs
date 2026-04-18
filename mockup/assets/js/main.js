@@ -26,7 +26,7 @@
 
     if (page === "product") {
       navKey = "products";
-    } else if (page === "brand") {
+    } else if (page === "brand" || page === "brands") {
       navKey = "brands";
     }
 

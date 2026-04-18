@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products | Celectric</title>
+    <meta name="description" content="Category and product listing mockup with filters for Celectric industrial catalog." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/design-system.css?v=720a939" />
+    <link rel="stylesheet" href="assets/css/site.css?v=720a939" />
+  </head>
+  <body data-page="products">
+    <div data-component="site-header"></div>
+
+    <main>
+      <section class="c-section c-section--tight">
+        <div class="o-container">
+          <header class="c-section__head" data-reveal>
+            <p class="c-overline">Products / Category Listing</p>
+            <h1 class="c-section__title">Filter products by brand, category, and key technical intent.</h1>
+            <p class="c-section__copy">
+              This listing page demonstrates the core catalog browsing layer between homepage discovery and detailed
+              product pages.
+            </p>
+          </header>
+
+          <div class="c-listing-layout">
+            <aside class="c-filter-panel" data-reveal>
+              <h2 class="c-filter-panel__title">Filters</h2>
+              <div class="c-filter-group">
+                <p class="c-filter-group__label">Brand</p>
+                <label><input type="checkbox" checked /> ABB</label>
+                <label><input type="checkbox" /> Siemens</label>
+                <label><input type="checkbox" /> Yokogawa</label>
+              </div>
+              <div class="c-filter-group">
+                <p class="c-filter-group__label">Category</p>
+                <label><input type="checkbox" checked /> Process Instrumentation</label>
+                <label><input type="checkbox" /> Factory Automation</label>
+                <label><input type="checkbox" /> Test &amp; Measurement</label>
+              </div>
+              <div class="c-filter-group">
+                <p class="c-filter-group__label">Key Specs</p>
+                <label><input type="checkbox" /> HART</label>
+                <label><input type="checkbox" /> IP67</label>
+                <label><input type="checkbox" /> Variant documents available</label>
+              </div>
+            </aside>
+
+            <section class="c-listing-results" data-reveal>
+              <div class="c-listing-toolbar">
+                <p class="c-listing-toolbar__meta">Showing 24 sample results</p>
+                <select class="c-select">
+                  <option>Sort: Relevance</option>
+                  <option>Sort: Brand</option>
+                  <option>Sort: Newest</option>
+                </select>
+              </div>
+
+              <div class="c-chip-row c-listing-applied">
+                <span class="c-chip">ABB</span>
+                <span class="c-chip">Process Instrumentation</span>
+              </div>
+
+              <div class="c-grid c-grid--2">
+                <article class="c-card c-product-card">
+                  <div class="c-product-card__media"><img src="assets/images/sensor-product.svg" alt="Product A sensor" /></div>
+                  <div>
+                    <p class="c-product-card__code">ABB | CEA-410</p>
+                    <h3 class="c-card__title">Product A Spectral Sensor</h3>
+                    <p class="c-card__subtitle">Parent product page with searchable 10nm / 20nm / 30nm options.</p>
+                  </div>
+                  <ul class="c-product-card__specs">
+                    <li>Output: 4-20 mA / HART</li>
+                    <li>Ingress Rating: IP67</li>
+                    <li>Variant docs supported</li>
+                  </ul>
+                  <div class="c-home-hero__actions">
+                    <a class="c-btn c-btn--ghost c-btn--sm" href="product-cea-410.html">View details</a>
+                    <a class="c-btn c-btn--solid c-btn--sm" href="index.html#rfq">Add to quote</a>
+                  </div>
+                </article>
+
+                <article class="c-card c-product-card">
+                  <div class="c-product-card__media"><img src="assets/images/calibrator-product.svg" alt="Pressure transmitter" /></div>
+                  <div>
+                    <p class="c-product-card__code">ABB | 266DSH</p>
+                    <h3 class="c-card__title">Differential Pressure Transmitter</h3>
+                    <p class="c-card__subtitle">Industrial process monitoring with document support and enquiry flow.</p>
+                  </div>
+                  <ul class="c-product-card__specs">
+                    <li>Digital communication</li>
+                    <li>Process plant application</li>
+                    <li>Certificate bundle available</li>
+                  </ul>
+                  <div class="c-home-hero__actions">
+                    <a class="c-btn c-btn--ghost c-btn--sm" href="product-cea-410.html">View details</a>
+                    <a class="c-btn c-btn--solid c-btn--sm" href="index.html#rfq">Add to quote</a>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div data-component="site-footer"></div>
+
+    <script src="assets/data/catalog.js?v=720a939"></script>
+    <script src="assets/js/components.js?v=720a939"></script>
+    <script src="assets/js/main.js?v=720a939"></script>
+  </body>
+</html>
