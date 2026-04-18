@@ -172,6 +172,25 @@ Why this is recommended:
 - supports logging and audit trail of document requests
 - is easier to extend later with access rules, expiry, and CRM / Odoo follow-up
 
+### Expiry and Permission Rules
+Recommended default rules:
+- each secure download link should expire automatically after a short time window
+- recommended default expiry: 24 to 72 hours
+- each link should be unique per request, not a permanent shared URL
+- links should only grant access to the exact files selected in that request
+- unpublished or restricted documents must not be included in the generated links
+- backend should be able to revoke a link if needed
+
+Recommended permission model:
+- public-download-eligible files can be requested by any website visitor through the request form
+- restricted files should require internal approval before the secure link email is sent
+- internal-only files must never be exposed through the public website flow
+- admin should be able to mark each file as public, restricted, or internal-only
+
+Owner discussion note:
+- phase 1 can start with simple public vs restricted rules
+- later phases can add customer login, account-based permissions, and partner-specific access
+
 ## Items To Confirm With Client
 - Main business goal of the new website
 - Product categories to highlight first

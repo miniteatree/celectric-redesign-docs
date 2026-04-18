@@ -119,6 +119,39 @@ Suggested records to keep:
 - secure link expiry time
 - optional CRM / Odoo follow-up status
 
+### Expiry Rules
+Recommended default:
+- secure links expire automatically after 24 to 72 hours
+- link expiry duration should be configurable in admin settings
+- each request generates a fresh link set
+- expired links cannot be reused
+- admin can manually revoke links before expiry if needed
+
+Recommended technical handling:
+- signed URL or token-based download endpoint
+- token stored with request record and expiry timestamp
+- optional one-time-use mode for highly sensitive files
+- rate limiting on repeated download attempts
+
+### Permission Rules
+Recommended document visibility states:
+- `public_requestable`: can be requested by any site visitor through the form
+- `restricted_requestable`: request allowed but email delivery requires internal review or approval
+- `internal_only`: visible only to internal staff, never exposed in public flow
+
+Validation rules before sending secure links:
+- document must be published
+- document must belong to the selected product / variant / brand context
+- document visibility must allow public request or approved restricted release
+- removed, expired, or superseded files must be blocked
+
+Admin controls recommended:
+- set visibility per file
+- set expiry duration policy
+- revoke issued links
+- review pending restricted requests
+- inspect request history and delivery logs
+
 ## Admin Panel Requirements Summary
 - Catalog management
 - Product variants / options
