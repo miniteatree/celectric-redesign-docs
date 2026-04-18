@@ -32,6 +32,14 @@ Goal: provide a quick previewable UI that maps cleanly to future Laravel Blade +
 - `mockup/components/COMPONENT_MAP.md`
   - Suggested Blade component mapping for Laravel port.
 
+## Preview on GitHub Pages
+
+After the GitHub Actions Pages workflow runs, the mockup can be viewed at:
+
+- `https://miniteatree.github.io/celectric-redesign-docs/`
+- `https://miniteatree.github.io/celectric-redesign-docs/brand-abb.html`
+- `https://miniteatree.github.io/celectric-redesign-docs/product-cea-410.html`
+
 ## Preview Locally
 
 1. Start a local static server from repo root:
