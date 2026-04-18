@@ -1,0 +1,387 @@
+(function () {
+  function onReady(callback) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", callback);
+      return;
+    }
+    callback();
+  }
+
+  function normalizeText(value) {
+    return value.toLowerCase().replace(/[^a-z0-9\s-]/g, " ").replace(/\s+/g, " ").trim();
+  }
+
+  function escapeHtml(value) {
+    return value
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function markActiveNavigation() {
+    var page = document.body.getAttribute("data-page");
+    var navKey = "home";
+
+    if (page === "product") {
+      navKey = "products";
+    } else if (page === "brand") {
+      navKey = "brands";
+    }
+
+    document.querySelectorAll(".c-main-nav a[data-nav]").forEach(function (link) {
+      if (link.getAttribute("data-nav") === navKey) {
+        link.classList.add("is-active");
+      }
+    });
+  }
+
+  function initRevealAnimation() {
+    var elements = document.querySelectorAll("[data-reveal]");
+
+    if (!elements.length || !("IntersectionObserver" in window)) {
+      elements.forEach(function (el) {
+        el.classList.add("is-visible");
+      });
+      return;
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        });
+      },
+      {
+        rootMargin: "0px 0px -10% 0px",
+        threshold: 0.2
+      }
+    );
+
+    elements.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  function initAutocomplete() {
+    var root = document.querySelector("[data-autocomplete]");
+    if (!root || !window.CELECTRIC_CATALOG) {
+      return;
+    }
+
+    var input = root.querySelector("input");
+    var submitButton = root.querySelector('button[type="button"]');
+    var list = root.querySelector("[data-suggestion-list]");
+    var emptyState = root.querySelector("[data-empty-state]");
+    var suggestions = window.CELECTRIC_CATALOG.searchSuggestions || [];
+    var activeIndex = -1;
+    var currentResults = [];
+
+    function closeList() {
+      root.classList.remove("is-open");
+      list.innerHTML = "";
+      emptyState.hidden = true;
+      activeIndex = -1;
+      currentResults = [];
+    }
+
+    function openList() {
+      root.classList.add("is-open");
+    }
+
+    function scoreItem(item, query) {
+      var label = normalizeText(item.label);
+      var subtitle = normalizeText(item.subtitle || "");
+      var terms = (item.terms || []).map(normalizeText);
+      var best = 0;
+
+      if (label === query) {
+        best = 6;
+      } else if (label.indexOf(query) === 0) {
+        best = 5;
+      } else if (label.indexOf(query) > -1) {
+        best = 4;
+      }
+
+      terms.forEach(function (term) {
+        if (term === query) {
+          best = Math.max(best, 6);
+        } else if (term.indexOf(query) === 0) {
+          best = Math.max(best, 5);
+        } else if (term.indexOf(query) > -1) {
+          best = Math.max(best, 4);
+        }
+      });
+
+      if (!best && subtitle.indexOf(query) > -1) {
+        best = 3;
+      }
+
+      if (item.type === "Variant" && query.indexOf("nm") > -1) {
+        best += 1;
+      }
+
+      return best;
+    }
+
+    function renderResults(results) {
+      list.innerHTML = "";
+
+      if (!results.length) {
+        emptyState.hidden = false;
+        openList();
+        return;
+      }
+
+      emptyState.hidden = true;
+
+      results.forEach(function (item, index) {
+        var li = document.createElement("li");
+        li.className = "c-search-suggestion";
+
+        var button = document.createElement("button");
+        button.type = "button";
+        button.setAttribute("data-url", item.url);
+        button.setAttribute("data-index", String(index));
+        button.setAttribute("aria-selected", "false");
+        button.innerHTML =
+          '<span class="c-search-suggestion__main">' +
+          escapeHtml(item.label) +
+          '</span>' +
+          '<span class="c-search-suggestion__meta">' +
+          escapeHtml(item.type) +
+          " | " +
+          escapeHtml(item.subtitle) +
+          "</span>";
+
+        li.appendChild(button);
+        list.appendChild(li);
+      });
+
+      openList();
+    }
+
+    function updateActiveResult() {
+      var buttons = list.querySelectorAll("button[data-index]");
+
+      buttons.forEach(function (button, index) {
+        var isActive = index === activeIndex;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+    }
+
+    function goToResult(index) {
+      var selected = currentResults[index];
+      if (!selected) {
+        return;
+      }
+      window.location.href = selected.url;
+    }
+
+    function updateResults(queryText) {
+      var query = normalizeText(queryText);
+
+      if (query.length < 2) {
+        closeList();
+        return;
+      }
+
+      currentResults = suggestions
+        .map(function (item) {
+          return {
+            item: item,
+            score: scoreItem(item, query)
+          };
+        })
+        .filter(function (entry) {
+          return entry.score > 0;
+        })
+        .sort(function (a, b) {
+          return b.score - a.score;
+        })
+        .slice(0, 7)
+        .map(function (entry) {
+          return entry.item;
+        });
+
+      activeIndex = -1;
+      renderResults(currentResults);
+    }
+
+    input.addEventListener("input", function (event) {
+      updateResults(event.target.value);
+    });
+
+    input.addEventListener("focus", function () {
+      updateResults(input.value);
+    });
+
+    input.addEventListener("keydown", function (event) {
+      if (!currentResults.length) {
+        return;
+      }
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        activeIndex = (activeIndex + 1) % currentResults.length;
+        updateActiveResult();
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        activeIndex = activeIndex <= 0 ? currentResults.length - 1 : activeIndex - 1;
+        updateActiveResult();
+      } else if (event.key === "Enter") {
+        event.preventDefault();
+        goToResult(activeIndex >= 0 ? activeIndex : 0);
+      } else if (event.key === "Escape") {
+        closeList();
+      }
+    });
+
+    if (submitButton) {
+      submitButton.addEventListener("click", function () {
+        updateResults(input.value);
+        if (currentResults.length) {
+          goToResult(0);
+        }
+      });
+    }
+
+    list.addEventListener("click", function (event) {
+      var button = event.target.closest("button[data-index]");
+      if (!button) {
+        return;
+      }
+
+      var index = Number(button.getAttribute("data-index"));
+      goToResult(index);
+    });
+
+    document.addEventListener("click", function (event) {
+      if (root.contains(event.target)) {
+        return;
+      }
+      closeList();
+    });
+  }
+
+  function renderDocItem(item) {
+    return (
+      '<li class="c-docs__item">' +
+      '  <div>' +
+      '    <p class="c-docs__title">' + escapeHtml(item.title) + '</p>' +
+      '    <p class="c-docs__meta">' + escapeHtml(item.type) + ' | ' + escapeHtml(item.size) + '</p>' +
+      '  </div>' +
+      '  <a href="#" aria-label="Preview ' + escapeHtml(item.title) + '">Preview</a>' +
+      '</li>'
+    );
+  }
+
+  function initVariantSelector() {
+    var root = document.querySelector("[data-variant-root]");
+    if (!root || !window.CELECTRIC_CATALOG || !window.CELECTRIC_CATALOG.product) {
+      return;
+    }
+
+    var product = window.CELECTRIC_CATALOG.product;
+    var variantButtons = root.querySelectorAll("[data-variant]");
+    var modelCode = root.querySelector("[data-model-code]");
+    var variantNote = root.querySelector("[data-variant-note]");
+    var variantSpecs = root.querySelector("[data-variant-specs]");
+    var baseDocsList = root.querySelector("[data-base-docs]");
+    var variantDocsList = root.querySelector("[data-variant-docs]");
+    var rfqVariant = root.querySelector("[data-rfq-variant]");
+
+    function fillBaseDocuments() {
+      if (!baseDocsList) {
+        return;
+      }
+
+      baseDocsList.innerHTML = product.baseDocuments.map(renderDocItem).join("");
+    }
+
+    function renderVariantSpecs(specs) {
+      if (!variantSpecs) {
+        return;
+      }
+
+      variantSpecs.innerHTML = Object.keys(specs)
+        .map(function (key) {
+          return '<div><dt>' + escapeHtml(key) + '</dt><dd>' + escapeHtml(specs[key]) + '</dd></div>';
+        })
+        .join("");
+    }
+
+    function renderVariantDocuments(documents) {
+      if (!variantDocsList) {
+        return;
+      }
+      variantDocsList.innerHTML = documents.map(renderDocItem).join("");
+    }
+
+    function setVariant(variantKey, syncUrl) {
+      var variant = product.variants[variantKey];
+      if (!variant) {
+        return;
+      }
+
+      if (modelCode) {
+        modelCode.textContent = variant.code;
+      }
+
+      if (variantNote) {
+        variantNote.textContent = variant.subtitle;
+      }
+
+      if (rfqVariant) {
+        rfqVariant.value = variantKey;
+      }
+
+      renderVariantSpecs(variant.specs);
+      renderVariantDocuments(variant.documents);
+
+      variantButtons.forEach(function (button) {
+        var isActive = button.getAttribute("data-variant") === variantKey;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      if (syncUrl) {
+        var nextUrl = new URL(window.location.href);
+        nextUrl.searchParams.set("variant", variantKey);
+        history.replaceState({}, "", nextUrl.toString());
+      }
+    }
+
+    fillBaseDocuments();
+
+    var params = new URLSearchParams(window.location.search);
+    var requestedVariant = params.get("variant");
+    var defaultVariant = product.variants[requestedVariant] ? requestedVariant : "20nm";
+
+    setVariant(defaultVariant, false);
+
+    variantButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        setVariant(button.getAttribute("data-variant"), true);
+      });
+    });
+  }
+
+  onReady(function () {
+    if (window.CelectricComponents && typeof window.CelectricComponents.mount === "function") {
+      window.CelectricComponents.mount();
+    }
+
+    markActiveNavigation();
+    initRevealAnimation();
+    initAutocomplete();
+    initVariantSelector();
+  });
+})();

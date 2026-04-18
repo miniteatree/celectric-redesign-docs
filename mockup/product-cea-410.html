@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product A Spectral Sensor | Celectric</title>
+    <meta
+      name="description"
+      content="Static product detail mockup with variant selector and product/variant document groups."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/design-system.css" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+  </head>
+  <body data-page="product">
+    <div data-component="site-header"></div>
+
+    <main data-variant-root>
+      <div class="o-container">
+        <nav class="c-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <a href="index.html#categories">Process Instrumentation</a>
+          <span>/</span>
+          <a href="brand-abb.html">ABB</a>
+          <span>/</span>
+          <strong>Product A Spectral Sensor</strong>
+        </nav>
+      </div>
+
+      <section class="c-section c-section--tight">
+        <div class="o-container c-product-layout">
+          <article class="c-product-media" data-reveal>
+            <p class="c-overline">Product Media</p>
+            <h2 class="c-hero-visual__title">Industrial-ready enclosure with field service access.</h2>
+            <p>
+              Visual placeholder for product image gallery. In implementation, this area maps to media carousel,
+              thumbnail rail, and zoom behaviors.
+            </p>
+            <div class="c-product-media__mock" aria-hidden="true"></div>
+          </article>
+
+          <aside class="c-product-side" data-reveal>
+            <div>
+              <p class="c-overline">ABB | CEA-410</p>
+              <h1>Product A Spectral Sensor</h1>
+              <p class="c-product-side__meta">
+                Parent product page remains canonical for minor options. Variant keywords are still searchable and route
+                to this page with matching option preselected.
+              </p>
+            </div>
+
+            <div>
+              <span class="c-pill-note">Selected Model: <strong data-model-code>CEA-410-20</strong></span>
+              <p class="c-product-side__variant-note" data-variant-note>
+                20nm balanced option for general manufacturing lines
+              </p>
+            </div>
+
+            <!-- Laravel partial candidate: components/products/variant-selector.blade.php -->
+            <section>
+              <p class="c-overline">Variant Selector</p>
+              <div class="c-chip-row" role="group" aria-label="Variant options">
+                <button class="c-chip" type="button" data-variant="10nm" aria-pressed="false">10nm</button>
+                <button class="c-chip" type="button" data-variant="20nm" aria-pressed="true">20nm</button>
+                <button class="c-chip" type="button" data-variant="30nm" aria-pressed="false">30nm</button>
+              </div>
+            </section>
+
+            <section>
+              <p class="c-overline">Variant Key Specs</p>
+              <dl class="c-data-list" data-variant-specs>
+                <div><dt>Filter Width</dt><dd>20nm</dd></div>
+                <div><dt>Response Time</dt><dd>140 ms</dd></div>
+                <div><dt>Accuracy</dt><dd>+/-0.2% full scale</dd></div>
+                <div><dt>Best Use</dt><dd>General industrial process monitoring</dd></div>
+              </dl>
+            </section>
+
+            <div class="c-home-hero__actions">
+              <a class="c-btn c-btn--solid" href="#product-rfq">Request Pricing</a>
+              <a class="c-btn c-btn--ghost" href="#documents">View Documents</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="c-section c-section--tight">
+        <div class="o-container c-grid c-grid--2">
+          <article class="c-card c-card--soft" data-reveal>
+            <p class="c-overline">Parent Product Specifications</p>
+            <h2 class="c-section__title">Shared baseline specs across all minor variants.</h2>
+            <dl class="c-data-list">
+              <div>
+                <dt>Measurement Principle</dt>
+                <dd>Optical spectral filtering</dd>
+              </div>
+              <div>
+                <dt>Ingress Rating</dt>
+                <dd>IP67</dd>
+              </div>
+              <div>
+                <dt>Output</dt>
+                <dd>4-20 mA / HART</dd>
+              </div>
+              <div>
+                <dt>Operating Temperature</dt>
+                <dd>-20 C to 70 C</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="c-card" id="product-rfq" data-reveal>
+            <p class="c-overline">Product Enquiry</p>
+            <h2 class="c-section__title">Send the selected variant in your RFQ submission.</h2>
+            <p class="c-section__copy">
+              This mirrors the proposed quote cart flow: product + option context, then customer contact details and
+              requirements for internal sales follow-up.
+            </p>
+            <form class="c-form-grid" action="#" method="post">
+              <input type="hidden" name="variant" value="20nm" data-rfq-variant />
+              <div class="c-form-row">
+                <label for="product-name">Contact Name</label>
+                <input class="c-input" id="product-name" type="text" placeholder="Your name" />
+              </div>
+              <div class="c-form-row">
+                <label for="product-email">Email</label>
+                <input class="c-input" id="product-email" type="email" placeholder="you@company.com" />
+              </div>
+              <div class="c-form-row c-form-row--full">
+                <label for="product-notes">Requirement Notes</label>
+                <textarea
+                  class="c-textarea"
+                  id="product-notes"
+                  rows="4"
+                  placeholder="Quantity, pressure range, compliance requirement, required delivery date"
+                ></textarea>
+              </div>
+              <div class="c-form-row c-form-row--full">
+                <button class="c-btn c-btn--solid" type="submit">Send Product Enquiry</button>
+              </div>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <!-- Laravel partial candidate: components/products/document-groups.blade.php -->
+      <section class="c-section c-section--tight" id="documents">
+        <div class="o-container">
+          <header class="c-section__head" data-reveal>
+            <p class="c-overline">Documents &amp; Downloads</p>
+            <h2 class="c-section__title">Grouped product and variant documents on one canonical page.</h2>
+            <p class="c-section__copy">
+              Supports both product-level files and variant-level files, matching documented requirements for
+              datasheets, manuals, drawings, certificates, and brochures.
+            </p>
+          </header>
+
+          <div class="c-docs">
+            <article class="c-docs__group" data-reveal>
+              <h3>Product-Level Documents</h3>
+              <ul class="c-docs__items" data-base-docs></ul>
+            </article>
+            <article class="c-docs__group" data-reveal>
+              <h3>Selected Variant Documents</h3>
+              <ul class="c-docs__items" data-variant-docs></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="c-section c-section--tight">
+        <div class="o-container">
+          <header class="c-section__head" data-reveal>
+            <p class="c-overline">Related Products</p>
+            <h2 class="c-section__title">Cross-links to keep discovery and quotation flow moving.</h2>
+          </header>
+          <div class="c-grid c-grid--3">
+            <article class="c-card c-product-card" data-reveal>
+              <div>
+                <p class="c-product-card__code">ABB | 266DSH</p>
+                <h3 class="c-card__title">Differential Pressure Transmitter</h3>
+              </div>
+              <p class="c-card__subtitle">For process line pressure and level applications.</p>
+              <a class="c-btn c-btn--ghost c-btn--sm" href="#">View details</a>
+            </article>
+            <article class="c-card c-product-card" data-reveal>
+              <div>
+                <p class="c-product-card__code">Siemens | SITRANS F M</p>
+                <h3 class="c-card__title">Electromagnetic Flowmeter</h3>
+              </div>
+              <p class="c-card__subtitle">Reliable flow monitoring for water and process plants.</p>
+              <a class="c-btn c-btn--ghost c-btn--sm" href="#">View details</a>
+            </article>
+            <article class="c-card c-product-card" data-reveal>
+              <div>
+                <p class="c-product-card__code">Yokogawa | AXG</p>
+                <h3 class="c-card__title">Flowmeter Converter Series</h3>
+              </div>
+              <p class="c-card__subtitle">High stability output with industrial communication support.</p>
+              <a class="c-btn c-btn--ghost c-btn--sm" href="#">View details</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <div
+        data-component="cta-strip"
+        data-title="Compare by brand before finalizing model selection"
+        data-copy="Jump to ABB brand page to browse grouped product families, support resources, and brand-level enquiry."
+        data-cta="Open ABB Brand Page"
+        data-href="brand-abb.html"
+      ></div>
+    </main>
+
+    <div data-component="site-footer"></div>
+
+    <script src="assets/data/catalog.js"></script>
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
