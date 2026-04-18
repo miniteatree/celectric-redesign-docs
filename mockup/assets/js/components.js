@@ -8,6 +8,10 @@
         '      <span class="c-brand__mark">CE</span>' +
         '      <span class="c-brand__text">Celectric Catalog</span>' +
         '    </a>' +
+        '    <button class="c-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" data-menu-toggle>' +
+        '      <span></span><span></span><span></span>' +
+        '      <span class="sr-only">Open menu</span>' +
+        '    </button>' +
         '    <nav class="c-main-nav" aria-label="Primary">' +
         '      <a data-nav="home" href="index.html">Home</a>' +
         '      <a data-nav="products" href="product-cea-410.html">Products</a>' +
@@ -15,7 +19,17 @@
         '      <a data-nav="solutions" href="index.html#solutions">Solutions</a>' +
         '      <a data-nav="resources" href="product-cea-410.html#documents">Resources</a>' +
         '    </nav>' +
-        '    <a class="c-btn c-btn--sm c-btn--solid" href="index.html#rfq">Request Quote</a>' +
+        '    <a class="c-btn c-btn--sm c-btn--solid c-header-cta" href="index.html#rfq">Request Quote</a>' +
+        '  </div>' +
+        '  <div class="c-mobile-nav" id="mobile-nav" hidden>' +
+        '    <div class="o-container c-mobile-nav__inner">' +
+        '      <a data-nav="home" href="index.html">Home</a>' +
+        '      <a data-nav="products" href="product-cea-410.html">Products</a>' +
+        '      <a data-nav="brands" href="brand-abb.html">Brands</a>' +
+        '      <a data-nav="solutions" href="index.html#solutions">Solutions</a>' +
+        '      <a data-nav="resources" href="product-cea-410.html#documents">Resources</a>' +
+        '      <a class="c-btn c-btn--solid" href="index.html#rfq">Request Quote</a>' +
+        '    </div>' +
         '  </div>' +
         '</header>'
       );
