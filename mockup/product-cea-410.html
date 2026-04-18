@@ -191,6 +191,76 @@
               <ul class="c-docs__items" data-variant-docs></ul>
             </article>
           </div>
+
+          <article class="c-doc-email" data-doc-email data-reveal>
+            <div class="c-doc-email__intro">
+              <p class="c-overline">Send Documents to Client</p>
+              <h3 class="c-section__title">Select PDFs and related files, then email them to the client.</h3>
+              <p class="c-section__copy">
+                This mockup represents a future feature where sales/admin can bundle selected product and variant
+                documents into one outgoing email.
+              </p>
+            </div>
+
+            <form class="c-doc-email__form" action="#" method="post">
+              <div class="c-form-grid">
+                <div class="c-form-row">
+                  <label for="doc-client-name">Client Name</label>
+                  <input class="c-input" id="doc-client-name" type="text" placeholder="Client contact name" />
+                </div>
+                <div class="c-form-row">
+                  <label for="doc-client-email">Client Email</label>
+                  <input class="c-input" id="doc-client-email" type="email" placeholder="client@company.com" />
+                </div>
+                <div class="c-form-row c-form-row--full">
+                  <label for="doc-email-subject">Email Subject</label>
+                  <input
+                    class="c-input"
+                    id="doc-email-subject"
+                    type="text"
+                    value="Celectric | Product A Spectral Sensor Document Package"
+                  />
+                </div>
+                <div class="c-form-row c-form-row--full">
+                  <label for="doc-email-message">Message</label>
+                  <textarea
+                    class="c-textarea"
+                    id="doc-email-message"
+                    rows="5"
+                    placeholder="Attached are the requested datasheets, drawings, and certificates for your review."
+                  >Hi,
+
+Please find the selected technical documents for Product A Spectral Sensor attached for your review.
+
+Regards,
+Celectric Sales Team</textarea>
+                </div>
+              </div>
+
+              <div class="c-doc-email__picker">
+                <div>
+                  <p class="c-doc-email__label">Choose files to include</p>
+                  <p class="c-doc-email__hint">Mix parent product PDFs with selected variant files.</p>
+                </div>
+                <div class="c-doc-email__actions">
+                  <button class="c-btn c-btn--ghost c-btn--sm" type="button" data-doc-select="all">Select all</button>
+                  <button class="c-btn c-btn--ghost c-btn--sm" type="button" data-doc-select="clear">Clear</button>
+                </div>
+              </div>
+
+              <div class="c-doc-email__list" data-doc-selection-list></div>
+
+              <div class="c-doc-email__summary">
+                <div>
+                  <p class="c-doc-email__label">Attachment summary</p>
+                  <p class="c-doc-email__hint" data-doc-selection-summary>No files selected yet.</p>
+                </div>
+                <button class="c-btn c-btn--solid" type="submit">Send document package</button>
+              </div>
+
+              <div class="c-doc-email__status" data-doc-email-status hidden></div>
+            </form>
+          </article>
         </div>
       </section>
 

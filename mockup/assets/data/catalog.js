@@ -86,18 +86,21 @@ window.CELECTRIC_CATALOG = {
     },
     baseDocuments: [
       {
+        id: "datasheet-parent",
         title: "Datasheet - Product A Spectral Sensor",
         type: "Datasheet",
         file: "PDF",
         size: "1.8 MB"
       },
       {
+        id: "install-guide",
         title: "Installation Guide - CEA-410",
         type: "User Manual",
         file: "PDF",
         size: "2.4 MB"
       },
       {
+        id: "compliance-cert",
         title: "CE and RoHS Compliance Certificate",
         type: "Certificate",
         file: "PDF",
@@ -116,12 +119,14 @@ window.CELECTRIC_CATALOG = {
         },
         documents: [
           {
+            id: "drawing-10nm",
             title: "Technical Drawing - CEA-410-10",
             type: "Technical Drawing",
             file: "PDF",
             size: "0.9 MB"
           },
           {
+            id: "cert-10nm",
             title: "Calibration Certificate - 10nm Assembly",
             type: "Certificate",
             file: "PDF",
@@ -140,12 +145,14 @@ window.CELECTRIC_CATALOG = {
         },
         documents: [
           {
+            id: "drawing-20nm",
             title: "Technical Drawing - CEA-410-20",
             type: "Technical Drawing",
             file: "PDF",
             size: "0.9 MB"
           },
           {
+            id: "curve-20nm",
             title: "Performance Curve - 20nm Option",
             type: "Brochure",
             file: "PDF",
@@ -164,12 +171,14 @@ window.CELECTRIC_CATALOG = {
         },
         documents: [
           {
+            id: "drawing-30nm",
             title: "Technical Drawing - CEA-410-30",
             type: "Technical Drawing",
             file: "PDF",
             size: "1.0 MB"
           },
           {
+            id: "traceability-30nm",
             title: "Material Traceability Report - 30nm Option",
             type: "Certificate",
             file: "PDF",
