@@ -17,6 +17,7 @@
         '      <a data-nav="products" href="products.html">Products</a>' +
         '      <a data-nav="brands" href="brands.html">Brands</a>' +
         '      <a data-nav="solutions" href="index.html#solutions">Solutions</a>' +
+        '      <a data-nav="blog" href="blog.html">Blog</a>' +
         '      <a data-nav="resources" href="search.html">Resources</a>' +
         '    </nav>' +
         '    <a class="c-btn c-btn--sm c-btn--solid c-header-cta" href="index.html#rfq">Request Quote</a>' +
@@ -32,6 +33,7 @@
         '      <a data-nav="products" href="products.html">Products</a>' +
         '      <a data-nav="brands" href="brands.html">Brands</a>' +
         '      <a data-nav="solutions" href="index.html#solutions">Solutions</a>' +
+        '      <a data-nav="blog" href="blog.html">Blog</a>' +
         '      <a data-nav="resources" href="search.html">Resources</a>' +
         '      <a class="c-btn c-btn--solid" href="index.html#rfq">Request Quote</a>' +
         '    </div>' +
@@ -52,6 +54,7 @@
         '      <a href="index.html">Home</a>' +
         '      <a href="brands.html">Brand Index</a>' +
         '      <a href="products.html">Products</a>' +
+        '      <a href="blog.html">Blog</a>' +
         '      <a href="product-cea-410.html">Product Detail</a>' +
         '      <a href="mailto:sales@celectric.example">sales@celectric.example</a>' +
         '    </div>' +

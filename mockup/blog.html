@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog & Insights | Celectric</title>
+    <meta
+      name="description"
+      content="Static blog index mockup for Celectric industrial catalog redesign, showing technical insights, comparisons, and application content."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/design-system.css?v=6da8776" />
+    <link rel="stylesheet" href="assets/css/site.css?v=6da8776" />
+  </head>
+  <body data-page="blog">
+    <div data-component="site-header"></div>
+
+    <main>
+      <section class="c-brand-hero c-blog-hero">
+        <div class="o-container c-brand-hero__inner">
+          <div data-reveal>
+            <p class="c-overline">Blog / Insights</p>
+            <h1>Technical articles that support product discovery and RFQ intent.</h1>
+            <p>
+              Use blog content to capture informational search traffic, explain product applications, and guide buyers
+              toward relevant products, brands, and enquiry actions.
+            </p>
+            <div class="c-home-hero__actions">
+              <a class="c-btn c-btn--solid" href="#latest-posts">Browse Articles</a>
+              <a class="c-btn c-btn--ghost" href="index.html#rfq">Request Quote</a>
+            </div>
+          </div>
+
+          <div class="c-brand-kpis" data-reveal>
+            <article class="c-kpi">
+              <strong>SEO</strong>
+              <span>Capture long-tail informational and comparison searches</span>
+            </article>
+            <article class="c-kpi">
+              <strong>Trust</strong>
+              <span>Build technical credibility before buyers send enquiries</span>
+            </article>
+            <article class="c-kpi">
+              <strong>Links</strong>
+              <span>Connect articles to products, brands, and solution pages</span>
+            </article>
+            <article class="c-kpi">
+              <strong>CTA</strong>
+              <span>Guide readers to RFQ and commercial conversion paths</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="c-section c-section--tight">
+        <div class="o-container c-listing-layout">
+          <aside class="c-filter-panel" data-reveal>
+            <div>
+              <p class="c-overline">Browse Blog</p>
+              <h2 class="c-filter-panel__title">Filter by article type</h2>
+            </div>
+
+            <div class="c-filter-group">
+              <p class="c-filter-group__label">Categories</p>
+              <label><input type="checkbox" checked /> Technical Guides</label>
+              <label><input type="checkbox" /> Product Comparisons</label>
+              <label><input type="checkbox" /> Applications</label>
+              <label><input type="checkbox" /> Industry Insights</label>
+              <label><input type="checkbox" /> Case Studies</label>
+              <label><input type="checkbox" /> Company News</label>
+            </div>
+
+            <div class="c-filter-group">
+              <p class="c-filter-group__label">Suggested tags</p>
+              <div class="c-chip-row">
+                <span class="c-chip">ABB</span>
+                <span class="c-chip">10nm</span>
+                <span class="c-chip">Calibration</span>
+                <span class="c-chip">Process Lines</span>
+              </div>
+            </div>
+          </aside>
+
+          <div class="c-listing-results">
+            <div class="c-listing-toolbar" data-reveal>
+              <div>
+                <p class="c-overline">Latest Insights</p>
+                <p class="c-listing-toolbar__meta">8 article mock cards, showing featured + standard blog listing states.</p>
+              </div>
+              <div class="c-chip-row c-listing-applied">
+                <span class="c-chip">Technical Guides</span>
+                <span class="c-chip">Filter Applied</span>
+              </div>
+            </div>
+
+            <article class="c-card c-blog-feature" id="latest-posts" data-reveal>
+              <div class="c-blog-feature__media">
+                <img src="assets/images/product-gallery-main.svg" alt="Featured blog article visual for spectral sensor guide" />
+              </div>
+              <div class="c-blog-feature__content">
+                <p class="c-product-card__code">Technical Guide | Apr 2026</p>
+                <h2 class="c-section__title">How to choose the right spectral sensor filter width for production monitoring</h2>
+                <p class="c-section__copy">
+                  Educational article mockup showing how blog content can explain variant selection, reduce sales friction,
+                  and route buyers into the canonical product detail page with the right option in mind.
+                </p>
+                <div class="c-chip-row">
+                  <span class="c-chip">Related Product: CEA-410</span>
+                  <span class="c-chip">Tag: 10nm</span>
+                  <span class="c-chip">Tag: 20nm</span>
+                </div>
+                <div class="c-home-hero__actions">
+                  <a class="c-btn c-btn--solid c-btn--sm" href="blog-spectral-filter-guide.html">Read article</a>
+                  <a class="c-btn c-btn--ghost c-btn--sm" href="product-cea-410.html?variant=10nm">View related product</a>
+                </div>
+              </div>
+            </article>
+
+            <div class="c-grid c-grid--3">
+              <article class="c-card c-blog-card" data-reveal>
+                <div class="c-product-card__media">
+                  <img src="assets/images/sensor-product.svg" alt="Instrumentation comparison article card image" />
+                </div>
+                <p class="c-product-card__code">Product Comparison | Apr 2026</p>
+                <h3 class="c-card__title">10nm vs 20nm vs 30nm filter options, what changes commercially and technically?</h3>
+                <p class="c-card__subtitle">Comparison-style content leading readers into the parent product page and RFQ flow.</p>
+                <a class="c-btn c-btn--ghost c-btn--sm" href="blog-spectral-filter-guide.html">Read article</a>
+              </article>
+
+              <article class="c-card c-blog-card" data-reveal>
+                <div class="c-product-card__media">
+                  <img src="assets/images/transmitter-product.svg" alt="Application guide blog card image" />
+                </div>
+                <p class="c-product-card__code">Application Guide | Apr 2026</p>
+                <h3 class="c-card__title">Selecting instrumentation for compact automation cabinets</h3>
+                <p class="c-card__subtitle">Example article connected to products, brands, and solution pages.</p>
+                <a class="c-btn c-btn--ghost c-btn--sm" href="blog-spectral-filter-guide.html">Read article</a>
+              </article>
+
+              <article class="c-card c-blog-card" data-reveal>
+                <div class="c-product-card__media">
+                  <img src="assets/images/calibrator-product.svg" alt="Calibration blog card image" />
+                </div>
+                <p class="c-product-card__code">Technical Guide | Mar 2026</p>
+                <h3 class="c-card__title">When field calibration matters for process reliability</h3>
+                <p class="c-card__subtitle">Top-of-funnel content with bottom-of-funnel CTA support.</p>
+                <a class="c-btn c-btn--ghost c-btn--sm" href="blog-spectral-filter-guide.html">Read article</a>
+              </article>
+
+              <article class="c-card c-blog-card" data-reveal>
+                <div class="c-product-card__media">
+                  <img src="assets/images/product-gallery-alt-1.svg" alt="Case study blog card image" />
+                </div>
+                <p class="c-product-card__code">Case Study | Mar 2026</p>
+                <h3 class="c-card__title">Reducing specification mismatch in enquiry-heavy industrial projects</h3>
+                <p class="c-card__subtitle">Shows trust-building and conversion support role of the insights section.</p>
+                <a class="c-btn c-btn--ghost c-btn--sm" href="blog-spectral-filter-guide.html">Read article</a>
+              </article>
+
+              <article class="c-card c-blog-card" data-reveal>
+                <div class="c-product-card__media">
+                  <img src="assets/images/product-gallery-alt-2.svg" alt="Industry insight blog card image" />
+                </div>
+                <p class="c-product-card__code">Industry Insight | Mar 2026</p>
+                <h3 class="c-card__title">Why buyers search by model code first, then validate documents second</h3>
+                <p class="c-card__subtitle">Supports the documented search and document grouping strategy.</p>
+                <a class="c-btn c-btn--ghost c-btn--sm" href="blog-spectral-filter-guide.html">Read article</a>
+              </article>
+
+              <article class="c-card c-blog-card" data-reveal>
+                <div class="c-product-card__media">
+                  <img src="assets/images/sensor-product.svg" alt="Company update blog card image" />
+                </div>
+                <p class="c-product-card__code">Company News | Feb 2026</p>
+                <h3 class="c-card__title">Celectric expands instrumentation support across major industrial brands</h3>
+                <p class="c-card__subtitle">Example of lighter company content inside the same blog structure.</p>
+                <a class="c-btn c-btn--ghost c-btn--sm" href="blog-spectral-filter-guide.html">Read article</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div
+        data-component="cta-strip"
+        data-title="Need product advice after reading?"
+        data-copy="Share your project requirements and Celectric can recommend the right model, brand, or option before formal quotation."
+        data-cta="Start RFQ"
+        data-href="index.html#rfq"
+      ></div>
+    </main>
+
+    <div data-component="site-footer"></div>
+
+    <script src="assets/js/components.js?v=6da8776"></script>
+    <script src="assets/js/main.js?v=6da8776"></script>
+  </body>
+</html>

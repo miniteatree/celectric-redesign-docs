@@ -28,6 +28,8 @@
       navKey = "products";
     } else if (page === "brand" || page === "brands") {
       navKey = "brands";
+    } else if (page === "blog") {
+      navKey = "blog";
     }
 
     document.querySelectorAll(".c-main-nav a[data-nav]").forEach(function (link) {
