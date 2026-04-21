@@ -68,8 +68,13 @@ Why:
 
 ### Production
 - Hetzner VPS + Cloudflare
-- Budget: about RM30 to RM80 per month
+- Cloudflare R2 for file storage, about 30GB
+- Budget: about RM30 to RM80 per month for VPS
 - Domain: about RM60 to RM120 per year
+- R2 storage: usually low cost at this scale
 
 ## Summary
 This direction keeps the site focused on industrial discovery, enquiry conversion, and SEO growth without overbuilding the first release.
+
+## Storage Note
+Use Cloudflare R2 for around 30GB of product documents and downloadable files so delivery can stay fast, safe, and easy to manage.
