@@ -7,40 +7,38 @@
     <meta name="description" content="Static presentation page generated from client review markdown." />
     <style>
       :root {
-        --bg: #f3f6fb;
+        --bg: #eef3f9;
         --panel: #ffffff;
-        --panel-soft: #eef4fb;
-        --ink: #13212f;
-        --muted: #516173;
+        --panel-soft: #f7f9fc;
+        --ink: #102133;
+        --muted: #5b6a7d;
         --blue: #2457d6;
         --blue-2: #0f2f73;
         --orange: #f49b33;
-        --line: rgba(19, 33, 47, 0.12);
-        --shadow: 0 20px 50px rgba(15, 25, 42, 0.12);
+        --line: rgba(16, 33, 51, 0.12);
+        --shadow: 0 22px 52px rgba(15, 25, 42, 0.12);
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; padding: 0; }
       body {
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         background:
-          radial-gradient(circle at top left, rgba(36, 87, 214, 0.13), transparent 28%),
+          radial-gradient(circle at top left, rgba(36, 87, 214, 0.15), transparent 28%),
           radial-gradient(circle at top right, rgba(244, 155, 51, 0.14), transparent 24%),
           var(--bg);
         color: var(--ink);
       }
       a { color: inherit; text-decoration: none; }
       .wrap { width: min(1180px, calc(100vw - 40px)); margin: 0 auto; }
-      .hero {
-        padding: 36px 0 24px;
-      }
+      .hero { padding: 36px 0 22px; }
       .hero-card {
         background: linear-gradient(135deg, #0f2f73, #2457d6 58%, #4c7cf0);
-        color: white;
+        color: #fff;
         border-radius: 28px;
         padding: 34px;
         box-shadow: var(--shadow);
-        overflow: hidden;
         position: relative;
+        overflow: hidden;
       }
       .hero-card::after {
         content: "";
@@ -57,51 +55,61 @@
         letter-spacing: .14em;
         text-transform: uppercase;
         font-size: 12px;
-        font-weight: 700;
-        opacity: .88;
+        font-weight: 800;
+        opacity: .9;
       }
       h1, h2, h3, p { margin: 0; }
-      h1 { font-size: clamp(2rem, 4vw, 3.6rem); line-height: 1.02; max-width: 12ch; margin-top: 10px; }
-      .hero-copy { max-width: 60ch; margin-top: 14px; font-size: 1.02rem; line-height: 1.7; opacity: .92; }
+      h1 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.02; max-width: 13ch; margin-top: 10px; }
+      .hero-copy { max-width: 64ch; margin-top: 14px; font-size: 1.03rem; line-height: 1.72; opacity: .94; }
       .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
       .btn {
         display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
-        padding: 0 16px; border-radius: 999px; font-weight: 700; border: 1px solid transparent;
+        padding: 0 16px; border-radius: 999px; font-weight: 800; border: 1px solid transparent;
       }
-      .btn.primary { background: white; color: var(--blue-2); }
-      .btn.ghost { border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08); color: white; }
-      .top-grid {
-        display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; margin-top: 18px;
+      .btn.primary { background: #fff; color: var(--blue-2); }
+      .btn.ghost { border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08); color: #fff; }
+      .hero-funnel {
+        display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 20px;
       }
+      .funnel-step {
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.18);
+        border-radius: 18px;
+        padding: 16px;
+        line-height: 1.5;
+      }
+      .funnel-step strong { display: block; margin-bottom: 4px; }
+      .section { padding: 16px 0; }
+      .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
       .panel {
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 24px;
         box-shadow: var(--shadow);
       }
-      .panel.pad { padding: 24px; }
-      .section { padding: 18px 0; }
-      .section-title { font-size: 1.2rem; margin-bottom: 14px; }
-      .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-      .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-      .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-      .pill {
-        display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border-radius: 999px;
-        background: var(--panel-soft); color: var(--blue-2); font-size: 13px; font-weight: 700;
-      }
-      .list { display: grid; gap: 10px; margin-top: 14px; }
-      .list-item { padding: 14px 16px; border-radius: 16px; background: #f8fbff; border: 1px solid var(--line); line-height: 1.5; }
-      .stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
-      .stat { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; padding: 16px; }
-      .stat strong { display: block; font-size: 1.15rem; }
-      .muted { color: var(--muted); }
+      .pad { padding: 24px; }
       .kicker { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; color: var(--blue); }
-      .budget td, .budget th { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; }
-      .budget { width: 100%; border-collapse: collapse; }
-      .budget th { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-      .footer-note { padding: 22px 0 34px; color: var(--muted); font-size: 13px; }
-      @media (max-width: 900px) {
-        .top-grid, .grid-2, .grid-3, .stat-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 1.25rem; margin-top: 8px; }
+      .list { display: grid; gap: 10px; margin-top: 14px; }
+      .list-item { padding: 14px 16px; border-radius: 16px; background: var(--panel-soft); border: 1px solid var(--line); line-height: 1.55; }
+      .metric-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+      .metric {
+        padding: 16px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, #fff, #f6f9ff);
+        border: 1px solid var(--line);
+      }
+      .metric strong { display: block; margin-bottom: 4px; }
+      .muted { color: var(--muted); }
+      .budget { width: 100%; border-collapse: collapse; margin-top: 12px; }
+      .budget th, .budget td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; }
+      .budget th { text-transform: uppercase; letter-spacing: .08em; font-size: 12px; color: var(--muted); }
+      .checklist { display: grid; gap: 10px; margin-top: 14px; }
+      .check { padding: 14px 16px; border-radius: 16px; border: 1px solid var(--line); background: #f9fbfe; }
+      .footer-note { padding: 18px 0 34px; color: var(--muted); font-size: 13px; }
+      @media (max-width: 920px) {
+        .hero-funnel, .grid-2, .grid-3, .metric-grid { grid-template-columns: 1fr; }
         .hero-card { padding: 24px; }
       }
     </style>
@@ -110,42 +118,40 @@
     <main class="wrap">
       <section class="hero">
         <div class="hero-card">
-          <span class="eyebrow">Client Review Summary</span>
-          <h1>Celectric redesign direction, ready to show the client.</h1>
-          <p class="hero-copy">This page is generated from markdown and summarizes the website direction, blog scope, product rules, document delivery, and hosting recommendation.</p>
+          <span class="eyebrow">Client Pitch</span>
+          <h1>Help buyers find the right product faster, then submit RFQs with less friction.</h1>
+          <p class="hero-copy">This proposal positions Celectric as an industrial catalog plus enquiry platform, with blog content, secure document delivery, and a storage setup that can scale safely.</p>
           <div class="actions">
             <a class="btn primary" href="../external/CLIENT_PRESENTATION.md">View Markdown</a>
             <a class="btn ghost" href="index.html">Back to Mock Home</a>
           </div>
-          <div class="stat-grid">
-            <div class="stat"><strong>Catalog + RFQ</strong><span>Industrial direction</span></div>
-            <div class="stat"><strong>Blog / Insights</strong><span>SEO and trust</span></div>
-            <div class="stat"><strong>Secure Links</strong><span>Document delivery</span></div>
-            <div class="stat"><strong>R2 30GB</strong><span>Document storage</span></div>
-            <div class="stat"><strong>VPS + Cloudflare</strong><span>Production hosting</span></div>
+          <div class="hero-funnel">
+            <div class="funnel-step"><strong>1. Search / Browse</strong><span>Find products by model, brand, or category.</span></div>
+            <div class="funnel-step"><strong>2. Product Page</strong><span>Check specs, options, documents, and FAQ.</span></div>
+            <div class="funnel-step"><strong>3. RFQ</strong><span>Send requirements and request quotation.</span></div>
+            <div class="funnel-step"><strong>4. Follow-up</strong><span>Sales reviews and responds with a quote.</span></div>
           </div>
         </div>
       </section>
 
-      <section class="section top-grid">
+      <section class="section grid-2">
         <article class="panel pad">
-          <p class="kicker">What the client should know</p>
-          <h2 class="section-title">Core proposal</h2>
+          <p class="kicker">What this site will deliver</p>
+          <h2 class="section-title">Core recommendation</h2>
           <div class="list">
             <div class="list-item">Industrial catalog plus enquiry platform</div>
-            <div class="list-item">Blog / Insights to support SEO and trust</div>
-            <div class="list-item">Minor product options stay on one canonical product page</div>
-            <div class="list-item">Selected documents are delivered by secure download link</div>
-            <div class="list-item">Cloudflare R2 stores about 30GB of files</div>
+            <div class="list-item">Blog / Insights for SEO and trust</div>
+            <div class="list-item">Secure download links for product documents</div>
+            <div class="list-item">Cloudflare R2 for about 30GB of file storage</div>
           </div>
         </article>
 
         <article class="panel pad">
-          <p class="kicker">Hosting budget</p>
-          <h2 class="section-title">Recommended setup</h2>
+          <p class="kicker">Platform setup</p>
+          <h2 class="section-title">Budget snapshot</h2>
           <table class="budget">
             <thead>
-              <tr><th>Item</th><th>Recommendation</th></tr>
+              <tr><th>Item</th><th>Estimate</th></tr>
             </thead>
             <tbody>
               <tr><td>Mock / preview</td><td>Cloudflare Pages, RM0</td></tr>
@@ -157,20 +163,51 @@
         </article>
       </section>
 
+      <section class="section grid-3">
+        <article class="panel pad">
+          <p class="kicker">Why this works</p>
+          <div class="metric-grid">
+            <div class="metric"><strong>Faster discovery</strong><span class="muted">Search and category entry points reduce friction.</span></div>
+            <div class="metric"><strong>Higher trust</strong><span class="muted">Blog and FAQ help buyers feel confident.</span></div>
+            <div class="metric"><strong>Cleaner RFQ</strong><span class="muted">Product pages and secure docs support quoting.</span></div>
+          </div>
+        </article>
+
+        <article class="panel pad">
+          <p class="kicker">Product rules</p>
+          <h2 class="section-title">Keep the catalog clean</h2>
+          <div class="list">
+            <div class="list-item">Minor options stay on one main product page.</div>
+            <div class="list-item">Only distinct model-level variants get separate pages.</div>
+            <div class="list-item">Query params can handle variant selection.</div>
+          </div>
+        </article>
+
+        <article class="panel pad">
+          <p class="kicker">What to confirm</p>
+          <h2 class="section-title">Client approval points</h2>
+          <div class="checklist">
+            <div class="check">Catalog + RFQ direction</div>
+            <div class="check">Blog / Insights inclusion</div>
+            <div class="check">Secure document delivery</div>
+            <div class="check">Cloudflare R2 for 30GB storage</div>
+          </div>
+        </article>
+      </section>
+
       <section class="section">
         <div class="panel pad">
-          <p class="kicker">Review Points</p>
-          <h2 class="section-title">What the client should review</h2>
+          <p class="kicker">Roadmap</p>
+          <h2 class="section-title">Phase order</h2>
           <div class="grid-3" style="margin-top:14px;">
-            <div class="list-item"><strong>Site structure</strong><br><span class="muted">Products, brands, solutions, resources, blog, about, contact.</span></div>
-            <div class="list-item"><strong>Content plan</strong><br><span class="muted">Blog supports SEO, FAQ, and buyer education.</span></div>
-            <div class="list-item"><strong>Delivery rule</strong><br><span class="muted">Documents should be sent via secure time-limited links.</span></div>
-            <div class="list-item"><strong>Storage</strong><br><span class="muted">Cloudflare R2 for about 30GB of file assets.</span></div>
+            <div class="list-item"><strong>Short term</strong><br><span class="muted">Confirm scope, sitemap, and approval points.</span></div>
+            <div class="list-item"><strong>Mid term</strong><br><span class="muted">Build homepage, products, brands, blog, RFQ, docs.</span></div>
+            <div class="list-item"><strong>Long term</strong><br><span class="muted">Search, Odoo, user accounts, checkout, CRM.</span></div>
           </div>
         </div>
       </section>
 
-      <p class="footer-note">Generated from markdown for client presentation. Designed as a slide-style one pager, not the same visual theme as the main website mockup. Cloudflare R2 is included for file storage at around 30GB.</p>
+      <p class="footer-note">Generated from markdown for client presentation. Styled as a decision-focused pitch page, not the main website theme.</p>
     </main>
   </body>
 </html>
