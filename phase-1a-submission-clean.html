@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celectric Phase 1A Submission Pack</title>
+    <style>
+      :root {
+        --bg: #f4f7fb;
+        --surface: #ffffff;
+        --surface-soft: #f8fbff;
+        --text: #152238;
+        --muted: #5d6a80;
+        --line: #dce5f0;
+        --blue: #184a91;
+        --blue-2: #10345f;
+        --red: #d6242f;
+        --shadow: 0 12px 30px rgba(16, 42, 80, 0.08);
+        --radius: 18px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #edf3fb 0, var(--bg) 280px);
+        color: var(--text);
+        line-height: 1.65;
+      }
+      .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+      .hero { padding: 44px 0 24px; }
+      .hero-card {
+        background: linear-gradient(135deg, var(--blue-2), var(--blue));
+        color: #fff;
+        border-radius: 28px;
+        padding: 34px;
+        box-shadow: var(--shadow);
+      }
+      .eyebrow {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,.14);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      h1, h2, h3 { line-height: 1.2; margin: 0 0 14px; }
+      h1 { font-size: clamp(2rem, 4vw, 3.1rem); margin-top: 14px; }
+      h2 { font-size: 1.55rem; }
+      h3 { font-size: 1.05rem; }
+      p { margin: 0 0 14px; }
+      .lede { max-width: 860px; color: rgba(255,255,255,.92); }
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .meta-item {
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: rgba(255,255,255,.1);
+        border: 1px solid rgba(255,255,255,.12);
+      }
+      .meta-item strong { display: block; font-size: .8rem; opacity: .82; margin-bottom: 4px; }
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(14px);
+        background: rgba(244,247,251,.86);
+        border-bottom: 1px solid rgba(220,229,240,.9);
+      }
+      .topbar .inner {
+        width: min(1180px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 10px 0;
+        display: flex;
+        gap: 10px;
+        overflow: auto;
+      }
+      .topbar a {
+        color: var(--blue);
+        text-decoration: none;
+        white-space: nowrap;
+        font-size: .92rem;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+      section { padding: 18px 0; }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
+      .tag {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: #eef4ff;
+        color: var(--blue-2);
+        font-size: .82rem;
+        font-weight: 700;
+      }
+      .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+      .span-12 { grid-column: span 12; }
+      .span-6 { grid-column: span 6; }
+      .span-4 { grid-column: span 4; }
+      .mini {
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+      }
+      .cols-2, .cols-3 {
+        display: grid;
+        gap: 16px;
+      }
+      .cols-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+      .cols-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      ul { margin: 0; padding-left: 18px; }
+      li + li { margin-top: 7px; }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: .96rem;
+      }
+      th, td {
+        padding: 12px 14px;
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+      }
+      th {
+        color: var(--blue-2);
+        font-size: .84rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+      }
+      .callout {
+        border-left: 4px solid var(--red);
+        background: #fff8f8;
+        padding: 14px 16px;
+        border-radius: 12px;
+      }
+      .footer { padding: 28px 0 56px; color: var(--muted); }
+      .muted { color: var(--muted); }
+      a { color: var(--blue); }
+      @media (max-width: 900px) {
+        .span-6, .span-4 { grid-column: span 12; }
+        .hero-card { padding: 26px; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="topbar">
+      <div class="inner">
+        <a href="#purpose">Purpose</a>
+        <a href="#scope">Scope</a>
+        <a href="#sitemap">Sitemap</a>
+        <a href="#seo">SEO</a>
+        <a href="#data">Data Structure</a>
+        <a href="#technical">Technical Plan</a>
+        <a href="#search">Search</a>
+        <a href="#configurator">Configurator</a>
+        <a href="#storage">Storage</a>
+        <a href="#admin">Admin</a>
+        <a href="#baseline">Baseline</a>
+        <a href="#next">Next Phase</a>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="hero">
+        <div class="hero-card">
+          <span class="eyebrow">Celectric Website Redesign</span>
+          <h1>Phase 1A Submission Pack</h1>
+          <p class="lede">
+            HTML version of the latest <strong>Celectric_Phase1A_Submission_Pack_Clean.pdf</strong>.
+            This page summarizes the completed Phase 1A discovery, sitemap planning, technical planning,
+            and content/data structure definition based on the accepted quotation.
+          </p>
+          <div class="meta">
+            <div class="meta-item"><strong>Source Version</strong>Clean PDF submission pack</div>
+            <div class="meta-item"><strong>Phase 1A Billing</strong>RM 5,000</div>
+            <div class="meta-item"><strong>Primary Goal</strong>Industrial catalog + RFQ platform</div>
+            <div class="meta-item"><strong>Project Stage</strong>Planning baseline for implementation</div>
+          </div>
+        </div>
+      </header>
+
+      <section id="purpose">
+        <div class="card">
+          <div class="tag">Purpose</div>
+          <p>
+            This document summarizes the Phase 1A work for the Celectric website redesign project, based on the accepted quotation.
+            Phase 1A focuses on discovery, sitemap planning, technical planning, and content/data structure confirmation.
+            This pack records the Phase 1A outputs, planning baseline, and recommended implementation direction established for the next project phases.
+          </p>
+        </div>
+      </section>
+
+      <section id="scope">
+        <div class="card">
+          <div class="tag">Phase 1A Scope from Quotation</div>
+          <table>
+            <thead>
+              <tr><th>Phase</th><th>Scope</th><th>Billing Amount</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Phase 1A</strong></td>
+                <td>Discovery, sitemap, technical planning, content/data structure confirmation</td>
+                <td><strong>RM 5,000</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <div class="tag">1. Discovery Summary</div>
+          <h2>Agreed direction</h2>
+          <p>
+            The agreed direction is to redesign the Celectric website as an industrial product catalog and enquiry platform,
+            not only as a static company profile website.
+          </p>
+          <div class="cols-2">
+            <div class="mini">
+              <h3>Phase 1 website should support</h3>
+              <ul>
+                <li>product browsing</li>
+                <li>category browsing</li>
+                <li>brand browsing</li>
+                <li>product specification / datasheet access</li>
+                <li>enquiry / RFQ submission</li>
+                <li>future catalog growth around 3,000+ products</li>
+                <li>a lightweight admin system for managing product and content updates</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Primary conversion goal</h3>
+              <p>
+                The primary conversion goal for Phase 1 is <strong>enquiry / request for quotation</strong>,
+                not public ecommerce checkout.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sitemap">
+        <div class="grid">
+          <div class="card span-6">
+            <div class="tag">2. Proposed Phase 1 Sitemap</div>
+            <h2>Main public website pages</h2>
+            <table>
+              <thead><tr><th>Section</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td>Home</td><td>Introduce Celectric, highlight product categories, brands, and enquiry CTA</td></tr>
+                <tr><td>Products</td><td>Main product catalog listing and search/filter entry point</td></tr>
+                <tr><td>Product Detail</td><td>Individual product information, specifications, datasheets, and RFQ CTA</td></tr>
+                <tr><td>Categories</td><td>Product discovery by category</td></tr>
+                <tr><td>Category Detail</td><td>Products grouped under a selected category</td></tr>
+                <tr><td>Brands</td><td>Brand listing and brand discovery</td></tr>
+                <tr><td>Brand Detail</td><td>Products grouped under a selected brand</td></tr>
+                <tr><td>Blog / Insights</td><td>Technical articles, updates, and SEO content</td></tr>
+                <tr><td>Resources / Datasheets</td><td>Product documents, datasheets, manuals, certificates, or related files</td></tr>
+                <tr><td>About</td><td>Company profile and credibility information</td></tr>
+                <tr><td>Contact / Request Quote</td><td>General enquiry and RFQ submission</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card span-6">
+            <div class="tag">Recommended Top Navigation</div>
+            <h2>Navigation baseline</h2>
+            <div class="cols-2">
+              <div class="mini"><ul>
+                <li>Home</li>
+                <li>Products</li>
+                <li>Categories</li>
+                <li>Brands</li>
+              </ul></div>
+              <div class="mini"><ul>
+                <li>Blog / Insights</li>
+                <li>About</li>
+                <li>Contact / Request Quote</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="seo">
+        <div class="card">
+          <div class="tag">3. URL and SEO Structure</div>
+          <h2>Stable, SEO-friendly URL rules</h2>
+          <table>
+            <thead><tr><th>Page Type</th><th>URL Pattern</th></tr></thead>
+            <tbody>
+              <tr><td>Product listing</td><td>/products</td></tr>
+              <tr><td>Product detail</td><td>/products/{product-slug}</td></tr>
+              <tr><td>Category listing</td><td>/categories</td></tr>
+              <tr><td>Category detail</td><td>/categories/{category-slug}</td></tr>
+              <tr><td>Brand listing</td><td>/brands</td></tr>
+              <tr><td>Brand detail</td><td>/brands/{brand-slug}</td></tr>
+              <tr><td>Blog listing</td><td>/blog or /insights</td></tr>
+              <tr><td>Blog article</td><td>/blog/{article-slug} or /insights/{article-slug}</td></tr>
+              <tr><td>Contact / RFQ</td><td>/contact or /request-quote</td></tr>
+            </tbody>
+          </table>
+          <h3 style="margin-top:18px;">Product canonical rule</h3>
+          <p>
+            Each product should have one stable canonical product detail URL: <strong>/products/{product-slug}</strong>.
+            A product may appear in multiple categories, but this should not create multiple product detail URLs.
+          </p>
+          <div class="callout">
+            Category pages should link back to the same canonical product page to avoid duplicate-content issues
+            and keep product URLs stable even when category assignments change.
+          </div>
+          <h3 style="margin-top:18px;">Three-layer product URL / SEO structure</h3>
+          <table>
+            <thead><tr><th>Layer</th><th>URL Example</th><th>Purpose</th><th>SEO Rule</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Main product page</td>
+                <td>/products/ee650-airvelocity-transmitter</td>
+                <td>Main product detail page for description, brand/category browsing, datasheets, and enquiry CTA</td>
+                <td>Canonical indexable product page</td>
+              </tr>
+              <tr>
+                <td>Configurator page with params</td>
+                <td>/products/ee650-airvelocity-transmitter/configure?45793=241952&amp;45794=297497</td>
+                <td>Shareable configuration state that restores selected option group/value IDs</td>
+                <td>Usually not a separate SEO page; should canonical back to main product or approved model-number page</td>
+              </tr>
+              <tr>
+                <td>Direct model-number SEO page</td>
+                <td>/configuration/ee650t2j3l100p1bd5</td>
+                <td>Clean landing page for important approved configured model numbers searched on Google</td>
+                <td>Can be indexable only for approved important model numbers</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="muted" style="margin-top:14px;">
+            Recommended rule: main product pages are the default canonical product URLs. Tracking parameters such as srsltid should not be included in canonical URLs.
+            Low-value or unapproved configuration combinations should not automatically become indexable SEO pages.
+          </p>
+        </div>
+      </section>
+
+      <section id="data">
+        <div class="card">
+          <div class="tag">4. Content and Data Structure Confirmation</div>
+          <div class="cols-3">
+            <div class="mini">
+              <h3>Product</h3>
+              <ul>
+                <li>product name</li>
+                <li>slug</li>
+                <li>brand</li>
+                <li>one or more categories</li>
+                <li>short summary</li>
+                <li>product description using Markdown format</li>
+                <li>key specifications</li>
+                <li>product images</li>
+                <li>product datasheets / documents</li>
+                <li>import-ready field structure</li>
+                <li>related products linking field</li>
+                <li>publish status / sort order</li>
+                <li>SEO title / SEO description / canonical URL</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Category + Brand</h3>
+              <ul>
+                <li>category/brand name</li>
+                <li>slug</li>
+                <li>description using Markdown format</li>
+                <li>category image/icon or brand logo</li>
+                <li>publish status / sort order</li>
+                <li>SEO title / SEO description</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Blog / Insights</h3>
+              <ul>
+                <li>title / slug / summary</li>
+                <li>article body using Markdown format</li>
+                <li>cover image</li>
+                <li>category / tag fields where needed</li>
+                <li>publish date / status</li>
+                <li>SEO title / SEO description</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Documents / Datasheets</h3>
+              <ul>
+                <li>document title</li>
+                <li>file type / document type</li>
+                <li>related product, brand, or category where applicable</li>
+                <li>public, protected, or internal-only access rule</li>
+                <li>secure download link behavior where required</li>
+                <li>recommended secure link expiry window (24 to 72 hours where applicable)</li>
+                <li>file storage path</li>
+                <li>publish status</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>RFQ / Enquiry</h3>
+              <ul>
+                <li>customer name</li>
+                <li>company name</li>
+                <li>email</li>
+                <li>phone number</li>
+                <li>message / requirement</li>
+                <li>selected product where applicable</li>
+                <li>selected configuration where applicable</li>
+                <li>selected document request where applicable</li>
+                <li>submission date and status</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <div class="tag">5. Data Relationship Rules</div>
+          <div class="cols-3">
+            <div class="mini">
+              <h3>Product and Category</h3>
+              <p>A product can belong to more than one category.</p>
+              <p><strong>Recommended relationship:</strong> products ↔ categories = many-to-many</p>
+            </div>
+            <div class="mini">
+              <h3>Product and Brand</h3>
+              <p>A product belongs to one brand by default.</p>
+              <p><strong>Recommended relationship:</strong> product → brand = belongs-to</p>
+            </div>
+            <div class="mini">
+              <h3>Product and Documents</h3>
+              <p>A product can have multiple documents such as datasheet, manual, certificate, technical drawing, and brochure.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="technical">
+        <div class="card">
+          <div class="tag">6. Technical Planning Summary</div>
+          <h2>Recommended architecture</h2>
+          <ul>
+            <li>Laravel manages admin dashboard, product data, categories, brands, documents, RFQ, and publish control</li>
+            <li>public website pages are generated as static HTML / JSON files during a controlled publish step</li>
+            <li>Cloudflare R2 stores product images, product specification PDFs, and future private documents</li>
+            <li>Cloudflare CDN / static hosting serves the public website</li>
+            <li>RFQ submission, admin management, and configurator validation remain Laravel-backed dynamic functions</li>
+          </ul>
+          <h3 style="margin-top:18px;">Manual batch publish flow</h3>
+          <ol style="padding-left:20px; margin:0;">
+            <li>Admin updates products, categories, brands, blog posts, images, or documents in Laravel.</li>
+            <li>Changes are saved as draft or pending changes.</li>
+            <li>The live public website is not changed immediately.</li>
+            <li>Admin reviews the pending changes.</li>
+            <li>Admin clicks Publish Static Site when ready.</li>
+            <li>Laravel generates updated static pages and data files.</li>
+            <li>The system deploys the generated static files to the public hosting/CDN.</li>
+            <li>Cache is refreshed or purged where needed.</li>
+            <li>Admin can review publish status and any errors.</li>
+            <li>A failed publish should not break the current live website.</li>
+            <li>The previous successful static version should remain available for rollback where practical.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <div class="tag">7. Static vs Dynamic Responsibility Boundary</div>
+          <table>
+            <thead><tr><th>Area</th><th>Recommended Handling</th></tr></thead>
+            <tbody>
+              <tr><td>Public homepage</td><td>Static generated page</td></tr>
+              <tr><td>Product listing</td><td>Static generated page / static data where practical</td></tr>
+              <tr><td>Product detail</td><td>Static generated page</td></tr>
+              <tr><td>Category pages</td><td>Static generated page</td></tr>
+              <tr><td>Brand pages</td><td>Static generated page</td></tr>
+              <tr><td>Blog / insights</td><td>Static generated page</td></tr>
+              <tr><td>Admin dashboard</td><td>Laravel dynamic backend</td></tr>
+              <tr><td>Product/category/brand management</td><td>Laravel dynamic backend</td></tr>
+              <tr><td>RFQ submission</td><td>Laravel dynamic backend</td></tr>
+              <tr><td>Configurator validation</td><td>Laravel dynamic backend</td></tr>
+              <tr><td>Manual publish control</td><td>Laravel dynamic backend / queue job</td></tr>
+              <tr><td>Publish status tracking</td><td>Pending, building, deployed, failed</td></tr>
+              <tr><td>Publish failure / rollback</td><td>Failed publish should not replace the current live website</td></tr>
+              <tr><td>File storage</td><td>Cloudflare R2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="search">
+        <div class="card">
+          <div class="tag">8. Search and Filter Scope Confirmation</div>
+          <div class="cols-2">
+            <div class="mini">
+              <h3>Included in Phase 1</h3>
+              <ul>
+                <li>keyword search by product name, model number, part number, brand, or category</li>
+                <li>brand filter</li>
+                <li>category filter</li>
+                <li>simple sorting such as default order, A-Z, or newest where data supports it</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Not included in Phase 1</h3>
+              <ul>
+                <li>autocomplete dropdown suggestions</li>
+                <li>advanced faceted filtering by many technical specifications</li>
+                <li>fuzzy / typo-tolerant search</li>
+                <li>AI search</li>
+                <li>product comparison tools</li>
+              </ul>
+            </div>
+          </div>
+          <p class="muted" style="margin-top:14px;">These advanced discovery features can be considered in Phase 2 after launch data is stable.</p>
+        </div>
+      </section>
+
+      <section id="configurator">
+        <div class="card">
+          <div class="tag">9. Configurator Scope Confirmation</div>
+          <div class="cols-2">
+            <div class="mini">
+              <h3>Included in Phase 1</h3>
+              <ul>
+                <li>product option groups</li>
+                <li>product option values</li>
+                <li>product option rules</li>
+                <li>approved product configurations</li>
+                <li>browser-based display of generated model / part number</li>
+                <li>shareable configuration URL restore behavior</li>
+                <li>backend validation before RFQ acceptance</li>
+                <li>RFQ capture of selected configuration details</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Not included in Phase 1</h3>
+              <ul>
+                <li>full CPQ pricing engine</li>
+                <li>automated quotation calculation</li>
+                <li>inventory validation</li>
+                <li>ERP / Odoo-driven configuration sync</li>
+                <li>public checkout or payment</li>
+                <li>full validation for all future product combinations not supplied in the approved launch dataset</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="storage">
+        <div class="card">
+          <div class="tag">10. Storage and Document Strategy</div>
+          <p>
+            Cloudflare R2 is recommended for product images, product specification PDFs, and future private client/order documents.
+          </p>
+          <table>
+            <thead><tr><th>Storage Area</th><th>Purpose</th><th>Access Rule</th></tr></thead>
+            <tbody>
+              <tr><td>product-images/</td><td>Product images</td><td>Public / CDN-friendly</td></tr>
+              <tr><td>product-specifications/</td><td>Datasheets, manuals, technical PDFs</td><td>Public or protected depending on business rule</td></tr>
+              <tr><td>order-documents/</td><td>Future invoices, delivery orders, receipts, client files</td><td>Private with signed access links</td></tr>
+            </tbody>
+          </table>
+          <ul style="margin-top:14px;">
+            <li>Product images should be public/CDN-friendly for fast website loading.</li>
+            <li>Product specification PDFs should use protected download via email URL, with a 72-hour secure link expiry window.</li>
+            <li>Future order/client documents should be private and accessed using secure signed links.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="admin">
+        <div class="card">
+          <div class="tag">11. Admin Scope Confirmation</div>
+          <p>The lightweight admin dashboard should support:</p>
+          <div class="cols-3">
+            <div class="mini"><ul>
+              <li>product management</li>
+              <li>category management</li>
+              <li>brand management</li>
+              <li>blog / insights management</li>
+            </ul></div>
+            <div class="mini"><ul>
+              <li>product image upload</li>
+              <li>product document / datasheet upload</li>
+              <li>document type labels such as datasheet, manual, certificate, wiring diagram, or brochure</li>
+              <li>publish / unpublish control</li>
+              <li>sorting control</li>
+            </ul></div>
+            <div class="mini"><ul>
+              <li>SEO fields</li>
+              <li>Markdown-based description/body fields</li>
+              <li>manual static publish control</li>
+              <li>publish status review such as pending, building, deployed, or failed</li>
+              <li>RFQ/enquiry review</li>
+            </ul></div>
+          </div>
+          <p class="callout" style="margin-top:16px;">Long-form content fields should use Markdown format as the source content, not raw WYSIWYG HTML.</p>
+        </div>
+      </section>
+
+      <section id="baseline">
+        <div class="card">
+          <div class="tag">12. Phase 1 Baseline Assumptions</div>
+          <ul>
+            <li>pricing remains enquiry/RFQ-led in Phase 1, with selective price display possible later if approved</li>
+            <li>Phase 1 is planned as a single-language website unless a bilingual requirement is introduced later</li>
+            <li>WhatsApp or direct sales contact CTA is recommended on relevant enquiry/contact areas</li>
+            <li>Solutions / Industries pages are treated as future/optional content unless specifically requested for Phase 1</li>
+            <li>homepage design should prioritize key product categories and brands</li>
+            <li>product specification PDFs are assumed to use protected download via email URL by default</li>
+            <li>secure download links are assumed to expire after 72 hours unless a different access rule is later preferred</li>
+            <li>initial document type labels are assumed to include datasheet, manual, certificate, wiring diagram, brochure, and technical drawing</li>
+            <li>additional document types can be added later without changing the overall Phase 1 structure</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="next">
+        <div class="grid">
+          <div class="card span-6">
+            <div class="tag">13. Recommended Next-Phase Focus</div>
+            <ul>
+              <li>UI/UX direction and key page layout design</li>
+              <li>frontend foundation for catalog, product, category, brand, and enquiry flows</li>
+              <li>admin foundation for product/content/document management</li>
+              <li>RFQ submission handling and configuration capture</li>
+              <li>static publish workflow setup and deployment readiness</li>
+              <li>preparation and cleanup of the approved launch product dataset</li>
+            </ul>
+          </div>
+          <div class="card span-6">
+            <div class="tag">14. Phase 1A Completion Statement</div>
+            <p>
+              This document records the Phase 1A discovery, sitemap planning, technical planning, and
+              content/data structure definition work completed for the Celectric website redesign project under the accepted quotation.
+            </p>
+            <p>
+              It serves as the delivery summary for the completed Phase 1A scope and as the working reference for the next implementation stages under the accepted Phase 1 direction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>
+          Based on: <code>Celectric_Phase1A_Submission_Pack_Clean.pdf</code> (latest clean version previously sent).
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
