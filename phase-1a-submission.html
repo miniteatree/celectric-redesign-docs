@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celectric Phase 1A Submission</title>
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --text: #162033;
+        --muted: #5c6780;
+        --line: #dbe3f0;
+        --red: #d6242f;
+        --blue: #1f4e94;
+        --blue-dark: #123260;
+        --chip: #eef4ff;
+        --shadow: 0 12px 30px rgba(19, 42, 79, 0.08);
+        --radius: 18px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #edf3fb 0%, var(--bg) 220px);
+        line-height: 1.6;
+      }
+      .wrap {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+      .hero {
+        padding: 56px 0 28px;
+      }
+      .hero-card {
+        background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+        color: #fff;
+        border-radius: 28px;
+        padding: 38px;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        inset: auto -80px -80px auto;
+        width: 240px;
+        height: 240px;
+        background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%);
+      }
+      .eyebrow {
+        display: inline-flex;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.14);
+        font-size: 13px;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+      }
+      h1, h2, h3 { line-height: 1.2; margin: 0 0 14px; }
+      h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin-top: 18px; }
+      h2 { font-size: 1.5rem; }
+      h3 { font-size: 1.05rem; }
+      p { margin: 0 0 14px; }
+      .lede { max-width: 760px; color: rgba(255,255,255,.9); font-size: 1.02rem; }
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 12px;
+        margin-top: 26px;
+      }
+      .meta div {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 16px;
+        padding: 14px 16px;
+      }
+      .meta strong { display: block; font-size: .82rem; opacity: .8; margin-bottom: 4px; }
+      section { padding: 18px 0; }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 18px;
+      }
+      .card {
+        grid-column: span 12;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
+      .card.half { grid-column: span 6; }
+      .card.third { grid-column: span 4; }
+      .tag {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: var(--chip);
+        color: var(--blue-dark);
+        font-size: .82rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      ul { margin: 0; padding-left: 18px; }
+      li + li { margin-top: 8px; }
+      .columns {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .mini {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+        background: #fbfdff;
+      }
+      .checklist li::marker { color: var(--red); }
+      .roadmap {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+      }
+      .phase {
+        border-radius: 16px;
+        padding: 18px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, #fff, #f8fbff);
+      }
+      .phase strong {
+        display: inline-block;
+        color: var(--red);
+        margin-bottom: 10px;
+      }
+      .footer {
+        padding: 24px 0 52px;
+        color: var(--muted);
+        font-size: .95rem;
+      }
+      .note {
+        border-left: 4px solid var(--red);
+        padding: 14px 16px;
+        background: #fff8f8;
+        border-radius: 12px;
+      }
+      a { color: var(--blue); }
+      @media (max-width: 900px) {
+        .card.half, .card.third { grid-column: span 12; }
+        .hero-card { padding: 28px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="hero">
+        <div class="hero-card">
+          <span class="eyebrow">Celectric Website Redesign</span>
+          <h1>Phase 1A Submission</h1>
+          <p class="lede">
+            Strategy and scope proposal for rebuilding Celectric as an industrial product catalog and RFQ-first enquiry platform,
+            using a stronger catalog structure inspired by Instrumart while keeping Celectric’s own branding and technical-sales positioning.
+          </p>
+          <div class="meta">
+            <div><strong>Project Direction</strong>Catalog + Enquiry / RFQ</div>
+            <div><strong>Reference Basis</strong>Instrumart structure + Celectric branding</div>
+            <div><strong>Primary Goal</strong>Better product discovery and lead capture</div>
+            <div><strong>Submission Format</strong>HTML summary for client review</div>
+          </div>
+        </div>
+      </header>
+
+      <section>
+        <div class="grid">
+          <article class="card half">
+            <div class="tag">1. Recommended Positioning</div>
+            <h2>Celectric should not stay as a brochure-style site</h2>
+            <p>
+              The recommended direction is to rebuild Celectric as a structured industrial catalog with a strong enquiry workflow,
+              instead of a simple corporate profile website.
+            </p>
+            <ul>
+              <li>Make product discovery much easier through categories, brands, search, and specs-led browsing.</li>
+              <li>Use RFQ / Request Quote as the core conversion path for Phase 1.</li>
+              <li>Support technical trust with specifications, documents, and service messaging.</li>
+              <li>Keep the UI professional, practical, and sales-assistive rather than overly decorative.</li>
+            </ul>
+          </article>
+
+          <article class="card half">
+            <div class="tag">2. Core UX Direction</div>
+            <h2>Use an Instrumart-style structure with Celectric identity</h2>
+            <p>
+              The best fit is <strong>Celectric branding on top of a more structured catalog/support framework</strong>.
+              This means keeping Celectric’s industrial tone, logo colours, and RFQ-first model while modernising hierarchy,
+              navigation, product listing flow, and CTA placement.
+            </p>
+            <div class="note">
+              Keep: Celectric branding, technical-sales tone, calibration/support messaging, RFQ model.<br />
+              Modernise: navigation, category pages, search prominence, product page structure, and repeated support CTAs.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <div class="tag">3. Proposed Site Structure</div>
+          <h2>Top-level navigation and sitemap direction</h2>
+          <div class="columns">
+            <div class="mini">
+              <h3>Main Navigation</h3>
+              <ul>
+                <li>Home</li>
+                <li>Products</li>
+                <li>Brands</li>
+                <li>Solutions</li>
+                <li>Resources</li>
+                <li>About</li>
+                <li>Contact / Request Quote</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Homepage Modules</h3>
+              <ul>
+                <li>Hero with search + CTA</li>
+                <li>Category entry grid</li>
+                <li>Brand highlights</li>
+                <li>Featured products / popular ranges</li>
+                <li>Support / RFQ block</li>
+                <li>Trust strip and service messaging</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Key Internal Pages</h3>
+              <ul>
+                <li>Category / listing pages</li>
+                <li>Brand landing pages</li>
+                <li>Product detail pages</li>
+                <li>Resources / document pages</li>
+                <li>Request Quote page</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="grid">
+          <article class="card half">
+            <div class="tag">4. Product Listing Recommendation</div>
+            <h2>Category pages should behave like a real catalog</h2>
+            <ul>
+              <li>Clear category titles and breadcrumbs</li>
+              <li>Filters by brand, type, and key specifications</li>
+              <li>Product cards with image, model, brand, and short summary</li>
+              <li>Sort controls and result counts</li>
+              <li>Strong RFQ / Contact Sales support near browsing flow</li>
+            </ul>
+          </article>
+
+          <article class="card half">
+            <div class="tag">5. Product Detail Recommendation</div>
+            <h2>Detail pages should be technical, clear, and conversion-ready</h2>
+            <ul>
+              <li>Product title, model, brand, and image gallery</li>
+              <li>Short key specification summary near the top</li>
+              <li>Downloads / datasheets section</li>
+              <li>Related products or alternatives</li>
+              <li>Main CTA: Request Quote / Request Price / Talk to Sales</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="grid">
+          <article class="card half">
+            <div class="tag">6. SEO Rule for Product Options</div>
+            <h2>Minor options should usually stay under one main product page</h2>
+            <p>
+              Most small variations such as size, cable length, connector type, or rating should not become separate indexable pages.
+              The default SEO pattern should be one canonical product page with option state handled inside the page.
+            </p>
+            <ul>
+              <li>Main page stays canonical and appears in sitemap</li>
+              <li>Option states may use on-page selectors or query parameters</li>
+              <li>Query parameter URLs should not be treated as standalone SEO pages</li>
+            </ul>
+          </article>
+
+          <article class="card half">
+            <div class="tag">7. Search & Variant Discovery</div>
+            <h2>Search should still understand variant-style keywords</h2>
+            <p>
+              Even when options are not separate pages, search and autocomplete should support phrases like model + option combinations.
+            </p>
+            <ul>
+              <li>Examples: product name, model number, variant terms, brand, category, aliases</li>
+              <li>Autocomplete can show results such as “Product A (10nm)”</li>
+              <li>Result should route to the parent product page with the matching option selected or highlighted</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <div class="tag">8. Product Documents</div>
+          <h2>Documents should be requestable via secure download links</h2>
+          <div class="columns">
+            <div class="mini">
+              <h3>Recommended Handling</h3>
+              <ul>
+                <li>Support multiple documents per product</li>
+                <li>Allow product-level and variant-level documents</li>
+                <li>Let users select files from the product page</li>
+                <li>Deliver access using secure backend-generated links</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Why This Is Better</h3>
+              <ul>
+                <li>Avoids attachment size limits</li>
+                <li>Reduces uncontrolled public file sharing</li>
+                <li>Supports request logging and follow-up</li>
+                <li>Creates a cleaner base for future permissions</li>
+              </ul>
+            </div>
+            <div class="mini">
+              <h3>Suggested Rule</h3>
+              <ul>
+                <li>Time-limited, non-guessable links</li>
+                <li>Recommended expiry: 24–72 hours</li>
+                <li>Restricted files can require internal approval</li>
+                <li>Internal-only files never appear in public flow</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <div class="tag">9. Confirmation Checklist</div>
+          <h2>Items to confirm for final implementation planning</h2>
+          <ul class="checklist">
+            <li>Celectric should be positioned as an industrial catalog + enquiry platform</li>
+            <li>Phase 1 should focus on RFQ / enquiry rather than full checkout</li>
+            <li>Brand pages should be included</li>
+            <li>Resources / document pages should be included</li>
+            <li>Minor options should stay within one main product page by default</li>
+            <li>Search should support variant-style keywords</li>
+            <li>Only distinct model-level variants should receive separate product pages</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <div class="tag">10. Phase Roadmap</div>
+          <h2>Suggested rollout plan</h2>
+          <div class="roadmap">
+            <div class="phase">
+              <strong>Phase 1</strong>
+              <ul>
+                <li>New homepage</li>
+                <li>Navigation restructure</li>
+                <li>Category pages</li>
+                <li>Brand pages</li>
+                <li>Product detail pages</li>
+                <li>Quote / enquiry flow</li>
+                <li>Mobile responsiveness</li>
+              </ul>
+            </div>
+            <div class="phase">
+              <strong>Phase 2</strong>
+              <ul>
+                <li>Advanced search</li>
+                <li>Better filtering and faceting</li>
+                <li>Resources center</li>
+                <li>Related products</li>
+                <li>SEO landing pages</li>
+              </ul>
+            </div>
+            <div class="phase">
+              <strong>Phase 3</strong>
+              <ul>
+                <li>User accounts</li>
+                <li>Account-based permissions</li>
+                <li>Expanded commerce capabilities if needed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <p>
+          This HTML submission is based on the Celectric client pack, internal planning notes, and confirmed redesign direction.
+          Existing mockups remain available in this GitHub Pages site for later visual review.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
