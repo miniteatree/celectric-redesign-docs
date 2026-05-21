@@ -463,7 +463,7 @@
             <li>public website pages are generated as static HTML / JSON files during a controlled publish step</li>
             <li>Cloudflare R2 stores product images, product specification PDFs, and future private documents</li>
             <li>Cloudflare CDN / static hosting serves the public website</li>
-            <li>RFQ submission, admin management, and configurator validation remain Laravel-backed dynamic functions</li>
+            <li>RFQ submission, admin management, and configurator data capture remain Laravel-backed dynamic functions</li>
           </ul>
           <h3 style="margin-top:18px;">Manual batch publish flow</h3>
           <ol style="padding-left:20px; margin:0;">
@@ -497,7 +497,7 @@
               <tr><td>Admin dashboard</td><td>Laravel dynamic backend</td></tr>
               <tr><td>Product/category/brand management</td><td>Laravel dynamic backend</td></tr>
               <tr><td>RFQ submission</td><td>Laravel dynamic backend</td></tr>
-              <tr><td>Configurator validation</td><td>Laravel dynamic backend</td></tr>
+              <tr><td>Configurator data capture</td><td>Laravel dynamic backend</td></tr>
               <tr><td>Manual publish control</td><td>Laravel dynamic backend / queue job</td></tr>
               <tr><td>Publish status tracking</td><td>Pending, building, deployed, failed</td></tr>
               <tr><td>Publish failure / rollback</td><td>Failed publish should not replace the current live website</td></tr>
