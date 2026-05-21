@@ -407,9 +407,9 @@
                 <li>document title</li>
                 <li>file type / document type</li>
                 <li>related product, brand, or category where applicable</li>
-                <li>public, protected, or internal-only access rule</li>
-                <li>secure download link behavior where required</li>
-                <li>recommended secure link expiry window (24 to 72 hours where applicable)</li>
+                <li>public or internal-only access rule where applicable</li>
+                <li>direct download behavior for product-related documents</li>
+                <li>email tracking for blog-related documents where required</li>
                 <li>file storage path</li>
                 <li>publish status</li>
               </ul>
@@ -545,10 +545,9 @@
                 <li>product option groups</li>
                 <li>product option values</li>
                 <li>product option rules</li>
-                <li>approved product configurations</li>
+                <li>all product configurations approved by default</li>
                 <li>browser-based display of generated model / part number</li>
                 <li>shareable configuration URL restore behavior</li>
-                <li>backend validation before RFQ acceptance</li>
                 <li>RFQ capture of selected configuration details</li>
               </ul>
             </div>
@@ -560,7 +559,7 @@
                 <li>inventory validation</li>
                 <li>ERP / Odoo-driven configuration sync</li>
                 <li>public checkout or payment</li>
-                <li>full validation for all future product combinations not supplied in the approved launch dataset</li>
+                <li>full CPQ-style rule enforcement for future product combinations beyond the launch setup</li>
               </ul>
             </div>
           </div>
@@ -577,14 +576,15 @@
             <thead><tr><th>Storage Area</th><th>Purpose</th><th>Access Rule</th></tr></thead>
             <tbody>
               <tr><td>product-images/</td><td>Product images</td><td>Public / CDN-friendly</td></tr>
-              <tr><td>product-specifications/</td><td>Datasheets, manuals, technical PDFs</td><td>Public or protected depending on business rule</td></tr>
-              <tr><td>order-documents/</td><td>Future invoices, delivery orders, receipts, client files</td><td>Private with signed access links</td></tr>
+              <tr><td>product-specifications/</td><td>Datasheets, manuals, technical PDFs</td><td>Direct public download for product-related documents</td></tr>
+              <tr><td>order-documents/</td><td>Future invoices, delivery orders, receipts, client files</td><td>Private/internal business documents</td></tr>
             </tbody>
           </table>
           <ul style="margin-top:14px;">
             <li>Product images should be public/CDN-friendly for fast website loading.</li>
-            <li>Product specification PDFs should use protected download via email URL, with a 72-hour secure link expiry window.</li>
-            <li>Future order/client documents should be private and accessed using secure signed links.</li>
+            <li>Product-related PDFs/documents should support direct download.</li>
+            <li>Blog-related documents may use email tracking where needed.</li>
+            <li>Future order/client documents should remain private/internal where applicable.</li>
           </ul>
         </div>
       </section>
@@ -628,8 +628,8 @@
             <li>WhatsApp or direct sales contact CTA is recommended on relevant enquiry/contact areas</li>
             <li>Solutions / Industries pages are treated as future/optional content unless specifically requested for Phase 1</li>
             <li>homepage design should prioritize key product categories and brands</li>
-            <li>product specification PDFs are assumed to use protected download via email URL by default</li>
-            <li>secure download links are assumed to expire after 72 hours unless a different access rule is later preferred</li>
+            <li>product specification PDFs are assumed to support direct download by default</li>
+            <li>email tracking is only applied to blog-related document flows where needed</li>
             <li>initial document type labels are assumed to include datasheet, manual, certificate, wiring diagram, brochure, and technical drawing</li>
             <li>additional document types can be added later without changing the overall Phase 1 structure</li>
           </ul>
