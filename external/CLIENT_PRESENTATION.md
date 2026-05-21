@@ -42,14 +42,14 @@ Recommended product page sections:
 
 ## Document Delivery Rule
 Recommended default:
-- selected documents should be delivered through secure download links
-- links should be time-limited and non-guessable
-- email should contain links, not large file attachments
+- product-related documents should support direct download
+- blog-related documents may use email tracking where needed
+- internal-only documents should stay out of the public flow
 
 Why:
-- avoids attachment limits
-- reduces uncontrolled sharing
-- supports audit trail and future access rules
+- product users get faster access to technical files
+- blog lead capture stays available where it is actually useful
+- avoids unnecessary gating on product pages
 
 ## Suggested Phase 1 Scope
 - homepage redesign

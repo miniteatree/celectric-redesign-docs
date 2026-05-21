@@ -158,39 +158,31 @@ Recommended handling:
 - display a Documents / Downloads section on the product page
 - group files by type where appropriate
 - support both product-level and variant-level documents where needed
-- allow client to select one or more files and request them by email
-- use secure download links for all document delivery, rather than direct public file URLs or large email attachments
+- allow direct download for product-related documents
+- allow email-based tracking only for blog-related document flows where needed
+- keep internal-only files out of the public website flow
 
-### Secure Download Link Decision
+### Document Delivery Decision
 For owner discussion and implementation planning, the recommended default is:
-- all selected documents are delivered through secure download links
-- backend validates requested document IDs before generating links
-- links should be time-limited and non-guessable
-- email should contain secure links instead of attaching the actual files
+- product-related documents can be downloaded directly
+- blog-related documents may use email tracking when the content goal requires lead capture
+- internal-only files must never be exposed through the public website flow
 
 Why this is recommended:
-- avoids mailbox attachment size limits
-- reduces risk of uncontrolled public file sharing
-- supports logging and audit trail of document requests
-- is easier to extend later with access rules, expiry, and CRM / Odoo follow-up
+- product users can access datasheets and technical files faster
+- blog lead capture remains available where marketing tracking is useful
+- avoids overcomplicating product downloads with unnecessary gated delivery
+- keeps room for stricter access rules later if business needs change
 
-### Expiry and Permission Rules
+### Access Rules
 Recommended default rules:
-- each secure download link should expire automatically after a short time window
-- recommended default expiry: 24 to 72 hours
-- each link should be unique per request, not a permanent shared URL
-- links should only grant access to the exact files selected in that request
-- unpublished or restricted documents must not be included in the generated links
-- backend should be able to revoke a link if needed
-
-Recommended permission model:
-- public-download-eligible files can be requested by any website visitor through the request form
-- restricted files should require internal approval before the secure link email is sent
-- internal-only files must never be exposed through the public website flow
-- admin should be able to mark each file as public, restricted, or internal-only
+- product-related documents can be public-download eligible by default
+- blog-related document flows can collect email before access where needed
+- internal-only files must not be exposed in the public website flow
+- admin should be able to mark each file as public or internal-only
 
 Owner discussion note:
-- phase 1 can start with simple public vs restricted rules
+- phase 1 can start with direct product downloads and optional blog tracking
 - later phases can add customer login, account-based permissions, and partner-specific access
 
 ## Items To Confirm With Client
@@ -262,4 +254,4 @@ This helps both search engines and future AI-assisted content workflows.
 - CRM integration
 
 ## Client Decisions Log
-- Confirmed direction: document delivery should use secure download links for all selected files, instead of direct attachments.
+- Confirmed direction: product-related documents should use direct download, while blog/resource flows may use email tracking where needed.

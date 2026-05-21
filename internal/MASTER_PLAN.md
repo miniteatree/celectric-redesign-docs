@@ -97,60 +97,42 @@ Recommended result behavior:
 - Files may include PDF and other approved types
 - Documents may be grouped by type
 - Some documents may belong to the parent product, others to a specific variant
-- Client can select one or more related documents from the product page
-- Document delivery should use secure download links for all requested files
+- Product-related documents should support direct download by default
+- Blog-related document flows may use email tracking where needed
+- Internal-only files must never be exposed in public flow
 
-### Secure Download Delivery Rule
+### Document Delivery Rule
 Recommended backend behavior:
-- frontend submits selected `document_ids` plus requester email
-- backend validates document ownership, publish status, and visibility
-- backend generates time-limited secure download links
-- email sends secure links instead of attaching files directly
-- every document request should be stored as a record for audit and follow-up
+- product pages can serve approved public documents directly
+- blog-related downloads can collect email before access when marketing tracking is needed
+- backend still validates document ownership, publish status, and visibility
+- document requests/download events can still be logged for audit and follow-up
 
-Suggested records to keep:
-- requester name
-- requester email
-- product id
-- variant id if applicable
+Suggested records to keep where tracking applies:
+- requester name if collected
+- requester email if collected
+- related product / article id
 - selected document ids
 - request timestamp
-- delivery status
-- secure link expiry time
+- delivery or download status
 - optional CRM / Odoo follow-up status
-
-### Expiry Rules
-Recommended default:
-- secure links expire automatically after 24 to 72 hours
-- link expiry duration should be configurable in admin settings
-- each request generates a fresh link set
-- expired links cannot be reused
-- admin can manually revoke links before expiry if needed
-
-Recommended technical handling:
-- signed URL or token-based download endpoint
-- token stored with request record and expiry timestamp
-- optional one-time-use mode for highly sensitive files
-- rate limiting on repeated download attempts
 
 ### Permission Rules
 Recommended document visibility states:
-- `public_requestable`: can be requested by any site visitor through the form
-- `restricted_requestable`: request allowed but email delivery requires internal review or approval
+- `public_download`: downloadable directly from the public website
+- `tracked_download`: downloadable after email capture where applicable, mainly for blog/resource flows
 - `internal_only`: visible only to internal staff, never exposed in public flow
 
-Validation rules before sending secure links:
+Validation rules before serving documents:
 - document must be published
-- document must belong to the selected product / variant / brand context
-- document visibility must allow public request or approved restricted release
-- removed, expired, or superseded files must be blocked
+- document must belong to the selected product / variant / brand / article context
+- document visibility must allow the relevant delivery method
+- removed or superseded files must be blocked
 
 Admin controls recommended:
 - set visibility per file
-- set expiry duration policy
-- revoke issued links
-- review pending restricted requests
-- inspect request history and delivery logs
+- mark whether email tracking applies
+- inspect request/download history and delivery logs
 
 ## Admin Panel Requirements Summary
 - Catalog management
@@ -233,7 +215,7 @@ Reference:
 - [~] Define multi-document attachment model
 - [~] Define datasheet / PDF display rules
 - [ ] Define file naming and categorization rules
-- [x] Record decision that selected documents should be delivered using secure download links only
+- [x] Record decision that product documents should use direct download by default, with email tracking only for blog/resource flows where needed
 - [x] Record need for backend request logs for selected document delivery
 - [x] Record approved brand color direction for AI-assisted visual work
 
@@ -265,7 +247,7 @@ Reference:
   - Confirmed strong need for admin panel and AI-assisted SEO.
   - Documented variant URL, search, and sitemap handling.
   - Added client confirmation materials for product option SEO.
-  - Recorded owner-facing decision that document delivery should use secure download links only, with backend request records.
+  - Recorded owner-facing decision that product documents should use direct download by default, with optional email tracking for blog/resource flows.
 
 ## Note
 Use this file as the main internal resume point for the project.

@@ -78,7 +78,7 @@ Answer in 1 to 3 short sentences.
 Answer in 1 to 3 short sentences.
 
 ### How are requested files delivered?
-Answer in 1 to 3 short sentences. Mention secure download links if applicable.
+Answer in 1 to 3 short sentences. Mention direct download for product documents and email tracking only for blog/resource flows if applicable.
 
 ## Enquiry CTA
 - CTA Title:
